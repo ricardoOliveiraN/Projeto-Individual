@@ -69,3 +69,46 @@
     text-decoration: underline;
     cursor:pointer;
 }
+/*LOGIN*/
+.div_mainInputsLogin{
+    margin-top: 32px;
+    margin-left: 70px;
+}
+.input_customLogin{
+    border:none;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    width: 80%;
+    margin-top: 76px;
+}
+.input_customLogin::placeholder{
+    color:black;
+    font-style: 'Lato', sans-serif;
+    padding: 10px; 
+    font-size: 16px;
+}
+.div_mainCadastrarLogin{
+    display: flex;
+    height: 142px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+.div_mainCadastrarLogin button{
+    background-color: #000080;
+    opacity: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    width: 40%;
+    border-radius: 10px;
+    cursor:pointer;
+}
+.div_mainCadastrarLogin span{
+    text-decoration: underline;
+    cursor:pointer;
+}
