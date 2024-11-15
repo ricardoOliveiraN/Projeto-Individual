@@ -1,0 +1,158 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+/*conteiner*/
+
+.div_conteiner {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    flex-wrap: nowrap;
+}
+
+/*Menu Lateral Direito*/
+.div_menuLateralEsquerda {
+    background-color: #C0C0C0;
+    position: fixed;
+    width: 15%;
+    height: 100%;
+}
+
+.div_menuLateralEsquerda .div_logo img {
+    width: 204.89px;
+    height: 106px;
+    margin-top: 10px;
+}
+
+.div_botoesInterativos {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 68%;
+}
+
+.div_botoesInterativos ul {
+    list-style: none;
+    padding: 0px 0px 0px 0px;
+    height: 50%;
+}
+
+.div_botoesInterativos ul div {
+    display: flex;
+    width: 204.89px;
+    height: 20px;
+    margin-top: 50px;
+    cursor: pointer;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.div_botoesInterativos ul div:hover {
+    font-size: 20px;
+    background-color: #f7eeeeb0;
+    height: 25px;
+}
+
+.div_botoesInterativos ul li a {
+    text-decoration: none;
+    color: #000080;
+    opacity: 60%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.div_botaoSair {
+    width: 204.89px;
+    display: flex;
+    height: 30px;
+    height: 68px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.div_botaoSair button {
+    color: #000080;
+    opacity: 60%;
+    border: none;
+    background-color: #C0C0C0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    width: 204.89px;
+}
+
+.div_botaoSair button:hover {
+    font-size: 20px;
+    background-color: #f7eeeeb0;
+    height: 25px;
+}
+
+/*Centro*/
+
+
+
+
+
+
+/*Menu Lateral Direito*/
+.div_menuLateralDireito {
+    background-color: #C0C0C0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
+.div_TextoPrincipal{
+    font-size: 16px;
+    margin-top: 22px;
+}
+.div_TextoBorda {
+    width: 88%;
+    border-bottom: 4px solid #D4AF37;
+    margin-top: -21px;
+
+}
+
+.div_PrincipaisAssuntos ul div {
+    display: flex;
+    width: 204.89px;
+    height: 20px;
+    margin-top: 118px;
+    cursor: pointer;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+.div_PrincipaisAssuntos ul div:hover {
+    font-size: 20px;
+}
+.div_PrincipaisAssuntos ul {
+    list-style: none;
+    padding: 0px 0px 0px 0px;
+    height: 50%;
+}
+.div_PrincipaisAssuntos ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
