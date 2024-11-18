@@ -56,15 +56,21 @@
                         <div class="div_mainTituloBorda"></div>
                     </div>
                     <div class="div_mainInputs">
-                        <input type="text" placeholder="Nome" class="input_custom">
-                        <input type="text" placeholder="Email" class="input_custom">
-                        <input type="text" placeholder="Celular" class="input_custom">
-                        <input type="text" placeholder="Senha" class="input_custom">
-                        <input type="text" placeholder="Confirmar senha" class="input_custom">
+                        <input onkeyup="validar()" type="text" placeholder="Nome" id="inp_nome" class="input_custom">
+                        <input onkeyup="validar()" type="text" placeholder="Email" id="inp_email" class="input_custom">
+                        <input onkeyup="validar()" type="text" placeholder="Celular" id="inp_celular"
+                            class="input_custom">
+                        <input onkeyup="validar()" type="password" placeholder="Senha" id="inp_senha"
+                            class="input_custom">
+                        <input onkeyup="validar()" type="password" placeholder="Confirmar senha" id="inp_confirmarSenha"
+                            class="input_custom">
+
+                        <div id="div_ConfirmarSenha"></div>
+                        <div id="div_validarSenha"></div>
 
                     </div>
-                    <div class="div_mainCadastrar" style="display: none;">
-                        <button>REGISTAR</button>
+                    <div class="div_mainCadastrar">
+                        <button id="btn_ativar" style="display: none;" onclick="registrar()">REGISTAR</button>
                         <p>Já possui uma conta? <span href="">Conecte-se</span> </p>
                     </div>
 
@@ -88,3 +94,5 @@
 </body>
 
 </html>
+
+<script src="../javascript/TelaCadastro.js"> </script>
