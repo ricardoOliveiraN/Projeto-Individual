@@ -19,6 +19,7 @@
     align-items: center;
     /* margin-top: 36px; */
     border-bottom: 1px solid white;
+    cursor: pointer;
     transition: 0.3s;
 }
 .div_PadraoInput:hover{
@@ -59,8 +60,8 @@
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
 } */
 .div_Botoes img{
-    width: 30px;
-    height: 60%;
+    width: 40px;
+    height: 80%;
     margin-left: 30px;
     cursor: pointer;
 }
