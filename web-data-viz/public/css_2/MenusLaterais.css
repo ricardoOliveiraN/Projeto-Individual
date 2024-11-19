@@ -17,10 +17,15 @@ body {
 
 /*Menu Lateral Direito*/
 .div_menuLateralEsquerda {
-    background-color: #C0C0C0;
+    display: flex;
+    background-color: #c0c0c063;
     position: fixed;
-    width: 15%;
+    width: 23%;
     height: 100%;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .div_menuLateralEsquerda .div_logo img {
@@ -61,14 +66,13 @@ body {
 .div_botoesInterativos ul div:hover {
     font-size: 20px;
     background-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
     height: 25px;
 }
 
 .div_botoesInterativos ul li a {
     text-decoration: none;
-    color: #000080;
-    opacity: 60%;
+    color: black;
     font-weight: bold;
     cursor: pointer;
 }
@@ -85,10 +89,9 @@ body {
 }
 
 .div_botaoSair button {
-    color: #000080;
-    opacity: 60%;
+    color: black;
     border: none;
-    background-color: #C0C0C0;
+    background-color: transparent;
     cursor: pointer;
     font-weight: bold;
     font-size: 16px;
@@ -99,7 +102,7 @@ body {
 .div_botaoSair button:hover {
     font-size: 20px;
     background-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
     height: 25px;
 }
 
@@ -112,7 +115,7 @@ body {
 
 /*Menu Lateral Direito*/
 .div_menuLateralDireito {
-    background-color: #C0C0C0;
+    background-color: #c0c0c063;
     right: 0;
     width: 20%;
     height: 100%;
@@ -124,10 +127,12 @@ body {
     justify-content: flex-start;
     align-items: center;
 }
-.div_TextoPrincipal{
+
+.div_TextoPrincipal {
     font-size: 16px;
     margin-top: 22px;
 }
+
 .div_TextoBorda {
     width: 88%;
     border-bottom: 4px solid #D4AF37;
@@ -146,14 +151,17 @@ body {
     align-items: center;
     font-size: 18px;
 }
+
 .div_PrincipaisAssuntos ul div:hover {
     font-size: 20px;
 }
+
 .div_PrincipaisAssuntos ul {
     list-style: none;
     padding: 0px 0px 0px 0px;
     height: 50%;
 }
+
 .div_PrincipaisAssuntos ul li a {
     text-decoration: none;
     color: black;
@@ -161,7 +169,7 @@ body {
     cursor: pointer;
 }
 
-.div_botaoPublicar{
+.div_botaoPublicar {
     width: 80px;
     height: 80px;
     border-radius: 50px;
@@ -170,14 +178,16 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 52px;
-    cursor:pointer;
+    cursor: pointer;
 }
-.div_botaoPublicar:hover{
+
+.div_botaoPublicar:hover {
     width: 85px;
     height: 85px;
-    
+
 }
-.div_botaoPublicar img{
+
+.div_botaoPublicar img {
     width: 100%;
     height: 100%;
     border-radius: 50%;

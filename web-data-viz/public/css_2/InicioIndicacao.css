@@ -1,16 +1,26 @@
-.div_centroConteudo {
-    position: relative; /* ou remova essa linha */
-    width: 65%;
-    overflow: auto;
-    margin-left: 15%;
-    margin-right: 20%;
-    background-color: #C0C0C0;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
+.div_conteiner {
+    position: relative;
 }
-.div_PadraoInput{
+
+.div_centroConteudo {
+
+    width: 57%;
+    overflow: auto;
+    margin-left: 23%;
+    margin-right: 0%;
+    height: fit-content;
+    background-color: #c0c0c0b5;
     display: flex;
-    width: 100%;
+    align-items: center;
+    align-content: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 7px;
+}
+
+.div_PadraoInput {
+    display: flex;
+    width: 75%;
     height: 250px;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -18,31 +28,40 @@
     justify-content: flex-start;
     align-items: center;
     /* margin-top: 36px; */
-    border-bottom: 1px solid white;
+    /* border-bottom: 1px solid white; */
     cursor: pointer;
     transition: 0.3s;
+    background-color: white;
+
+    border-radius: 5px;
+    box-shadow: 4px 7px 13px #0000002e;
 }
-.div_PadraoInput:hover{
+
+.div_PadraoInput:hover {
     background-color: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }
-.div_Conteudo{
+
+.div_Conteudo {
     display: flex;
     transition: 0.3s;
-    width: 100%;
+    width: 95%;
     height: 80%;
     flex-direction: column;
     align-items: flex-start;
     align-content: flex-start;
     justify-content: flex-start;
-    margin-top: 16px;
-   
+    margin: 16px;
+
+
+
 }
+
 /* .div_Conteudo:hover{
     background-color: rgba(255, 255, 255, 0.6);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
 } */
-.div_Botoes{
+.div_Botoes {
     /* border-left: 2px solid black;
     border-right: 2px solid black;
     border-bottom: 2px solid black; */
@@ -55,14 +74,48 @@
     align-items: center;
     transition: 0.3s;
 }
+
 /* .div_Botoes:hover{
     background-color: rgba(255, 255, 255, 0.6);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
 } */
-.div_Botoes img{
-    width: 40px;
-    height: 80%;
+.div_Botoes img {
+    height: 50%;
     margin-left: 30px;
     cursor: pointer;
+    object-fit: cover;
 }
 
+.div_Publicar {
+    padding: 0px;
+    /* border: 2px solid black; */
+    width: 99vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.555);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_textArea {
+    padding: 20px;
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    border-radius: 5px;
+}
+
+.div_Publicar textarea {
+    padding: 5px;
+    resize: none;
+    min-height: 75%;
+    max-height: 75%;
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 5px;
+}
