@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css_2/TelaCadastro.css">
+    <link rel="stylesheet" href="../css_2/HeaderFooter.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="div_Principal">
+
+        <header>
+            <nav>
+                <div class="div_containerHeader">
+
+
+                    <div class="div_headerImagem">
+                        <a href="../index.html">
+                            <img src="../img/LogoHeader.jpeg" alt="">
+                        </a>
+                    </div>
+                    <div class="div_headerNavBar">
+                        <ul>
+                            <li><a href="../QuemSomos/TelaSobreNos.html">Objetivo</a></li>
+                            <li><a href="../Serviços/TelaServicos.html">Serviços</a></li>
+                            <li><a href="../Simulador/Simulador.html">Sobre mim</a></li>
+                            <li><a href="../Contato/TelaFaleConosco.Html">Contato</a></li>
+                        </ul>
+                    </div>
+                    <div class="div_headerBotao">
+                        <a href="../LoginCadastro/TelaLogin.html">Entrar</a>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+
+        <main>
+
+            <div class="div_containerMain">
+
+                <div class="div_mainImg"></div>
+
+                <div class="div_mainConteudo">
+                    <div class="div_mainTitulo">
+                        <h1>SIGN UP</h1>
+                        <div class="div_mainTituloBorda"></div>
+                    </div>
+                    <div class="div_mainInputs">
+                        <input onkeyup="validar()" type="text" placeholder="Nome" id="inp_nome" class="input_custom">
+                        <input onkeyup="validar()" type="text" placeholder="Email" id="inp_email" class="input_custom">
+                        <input onkeyup="validar()" type="text" placeholder="Celular" id="inp_celular"
+                            class="input_custom">
+                        <input onkeyup="validar()" type="password" placeholder="Senha" id="inp_senha"
+                            class="input_custom">
+                        <input onkeyup="validar()" type="password" placeholder="Confirmar senha" id="inp_confirmarSenha"
+                            class="input_custom">
+
+                        <div id="div_ConfirmarSenha"></div>
+                        <div id="div_validarSenha"></div>
+
+                    </div>
+                    <div class="div_mainCadastrar">
+                        <button id="btn_ativar" style="display: none;" onclick="cadastrar()">REGISTAR</button>
+                        <p>Já possui uma conta? <span href="">Conecte-se</span> </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer>
+
+            <div class="div_containerFooter">
+
+
+            </div>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
+
+<script src="../javascript/TelaCadastro.js"> </script>

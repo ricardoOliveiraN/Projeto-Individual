@@ -1,0 +1,78 @@
+/*Engloba tudo*/
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+/*Header*/
+a{
+    text-decoration: none;
+}
+.div_containerHeader{
+    display:flex;
+    flex-direction: row;
+    background-color: black;
+    height: 42px;
+    
+}
+.div_headerImagem img{
+    width: 42px;
+    height: 42px;
+}
+.div_headerImagem{
+    display: flex;
+    width: 20%;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.div_headerNavBar{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+.div_headerNavBar ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.div_headerNavBar li {
+    margin-right: 90px; 
+}
+.div_headerNavBar li a {
+    text-decoration: none;
+    color:white;
+}
+.div_headerBotao{
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+.div_headerBotao a{
+    text-decoration: none;
+    color:orangered;
+}
+
+
+/*FOOTER*/
+
+.div_containerFooter{
+    display:flex;
+    background-color: black;
+    height: 80px;
+}

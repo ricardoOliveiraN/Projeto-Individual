@@ -1,0 +1,9 @@
+.div_centroConteudo {
+    position: relative;
+    width: 85%;
+    /* overflow: auto; */
+    margin-left: 15%;
+    background-color: #C0C0C0;
+    border-left: 1px solid white;
+    height: 633px;
+}
