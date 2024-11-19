@@ -20,51 +20,35 @@ function AtualizarDiv() {
                 console.log("Dados recebidos: ", JSON.stringify(resposta));
 
                 var feed = document.getElementById("div_ContemPost");
-                feed.innerHTML = "";
+                // feed.innerHTML = "";
                 for (let i = 0; i < resposta.length; i++) {
                     var publicacao = resposta[i];
                     
                     
-
-                    // criando e manipulando elementos do HTML via JavaScript
-                    var divPublicacao = document.createElement("div");
-                    var spanNome = document.createElement("span");
-                    var spanDescricao = document.createElement("span");
-                    var spanData = document.createElement("span");
-                    // var divDescricao = document.createElement("div");
-                    var divButtons = document.createElement("div");
-
-                    var btnCurtir = document.createElement("img");
-                    var btnComentar = document.createElement("img");
                     var dataCompleta = new Date(publicacao.Data);
                     var dataSimples = dataCompleta.toLocaleDateString("pt-BR") 
                     
 
 
-                    spanDescricao.innerHTML = publicacao.Descricao;
-                    spanNome.innerHTML = publicacao.Nome;
-                    spanData.innerHTML = dataSimples;
+                    DescricaoPost = publicacao.Descricao;
+                    NomeDonoPost = publicacao.Nome;
+                    DataPost = dataSimples;
 
-                    divPublicacao.className = "div_Conteudo";
 
-                    btnCurtir.src = "../img/heart_icon-icons.com_48290.png";
-                    btnCurtir.alt = "Curtir";
-                    btnCurtir.onclick = "curtir";
+                    div_ContemPost.innerHTML += `
                     
-                    btnComentar.src = "../img/comentario.png";
-                    btnComentar.alt = "Curtir";
-                    btnCurtir.onclick = "comentar";
+                    <div class="div_Conteudo"><span>${NomeDonoPost}</span><br>
+                    <span>${DataPost}</span><br>
+                    <span> ${DescricaoPost}</span>
+                    </div>
+                    <div class="div_Botoes">
+                        <img src="../img/comentario.png" alt=""> <span>qtd</span>
+                        <img src="../img/heart_icon-icons.com_48290.png" alt=""> <span>qtd</span>
+                    </div>
 
-                    divButtons.className = "div_Botoes"
+                `
 
-
-                    divPublicacao.appendChild(spanNome);
-                    divPublicacao.appendChild(spanData);
-                    divPublicacao.appendChild(spanDescricao);
-                    divButtons.appendChild(btnCurtir);
-                    divButtons.appendChild(btnComentar);
-                    feed.appendChild(divPublicacao);
-                    feed.appendChild(divButtons);
+               
                 }
 
                 finalizarAguardar();
