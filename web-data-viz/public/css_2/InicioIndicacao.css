@@ -119,3 +119,18 @@
     min-width: 100%;
     border-radius: 5px;
 }
+
+.div_textArea {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_textArea img {
+    object-fit: cover;
+    height: 50px;
+    cursor:pointer;
+    margin-top: 15px ;
+}
