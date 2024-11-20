@@ -36,13 +36,14 @@ function AtualizarDiv() {
           var dataCompleta = new Date(publicacao.DataPost);
           var dataSimples = dataCompleta.toLocaleDateString("pt-BR")
           DataPost = dataSimples;
+          var idPost = publicacao.PostId;
 
           console.log(publicacao.qtdLikes)
 
           if(QuemCurtiu == idUsuario ){
             srcCoracaoBranco = '"img/love_like_heart_icon_196980.png" alt="" onclick="Descurtir()"'
-          }else{
-            srcCoracaoBranco = '"img/heart_icon-icons.com_48290.png" alt="" onclick="curtir()"'
+          }else if (QuemCurtiu != idUsuario) {
+            srcCoracaoBranco = `"img/heart_icon-icons.com_48290.png" alt="" onclick="curtir(${idPost})"`
           }
 
           div_ContemPost.innerHTML += `
@@ -117,7 +118,6 @@ function publicar() {
 
       if (resposta.ok) {
 
-
         div_PublicarPost.style.display = 'none';
         window.location = "TelaInicial.html";
 
@@ -135,16 +135,35 @@ function publicar() {
 
 // Faz um select no post e curtidas, em que a l.fkPost = p.idPost e l.fkUsuario = u.idUsuario (salvo na sessão), se o valor da resposta for igual a zero, botão fica branco, caso contrário fica vermelho.
 
+function curtir(idPost) {
+  var idUsuarioVar = sessionStorage.ID_USUARIO;
+  var idPostVar = idPost;
 
-function Atualizarcurtir() {
+  fetch("/feed/curtir", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      idUsuarioServer: idUsuarioVar,
+      idPostServer: idPostVar
+    }),
+  })
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
 
+      if (resposta.ok) {
 
+        window.location = "TelaInicial.html";
 
-}
+      } else {
+        throw "Houve um erro ao tentar realizar o cadastro!";
+      }
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
 
-function curtir() {
-
-
-
+  return false;
 
 }

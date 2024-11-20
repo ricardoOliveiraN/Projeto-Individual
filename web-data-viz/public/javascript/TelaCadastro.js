@@ -301,7 +301,7 @@ function cadastrar(){
     return false;
   }
 
-  function sumirMensagem() {
-    // cardErro.style.display = "none";
-  }
+//   function sumirMensagem() {
+//     // cardErro.style.display = "none";
+//   }
 
