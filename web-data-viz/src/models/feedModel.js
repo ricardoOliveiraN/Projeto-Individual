@@ -4,10 +4,22 @@ function listar() {
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucaoSql = `
         SELECT 
-            p.descricao as Descricao,
-            p.dataPostagem as Data,
-            u.nomeCompleto as Nome
-            FROM Post as p JOIN Usuarios as u ON p.fkUsario = u.idUsuario;
+    p.idPost as PostId,
+    p.descricao as PostDescricao,
+    p.dataPostagem as DataPost,
+    u.nomeCompleto as NomePostou,
+    l.fkUsuario as idQuemCurtiu,
+    (SELECT COUNT(*) 
+     FROM LikesPost as l
+     WHERE l.fkPost = p.idPost) as qtdLikes,
+     (SELECT COUNT(*)
+     FROM Comentarios as c 
+     WHERE c.fkPost = p.idPost) as qtdComentarios
+FROM Post as p
+LEFT JOIN Usuarios as u
+    ON p.fkUsario = u.idUsuario
+LEFT JOIN LikesPost as l ON l.fkPost = p.idPost
+LEFT JOIN Comentarios as c ON c.fkPost = p.idPost;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
