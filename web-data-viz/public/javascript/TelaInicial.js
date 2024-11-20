@@ -81,9 +81,7 @@ function AtualizarDiv() {
 */
 
 function enviarPost() {
-
     div_PublicarPost.style.display = 'flex';
-
 
 }
 
@@ -92,29 +90,18 @@ function publicar() {
     var idUsuarioVar = sessionStorage.ID_USUARIO;
     var TextoPostVar = textarea_descricao.value;
 
-    // Verificando se há algum campo em branco
     if (
       TextoPostVar == ""
     ){
-    //   cardErro.style.display = "block";
-    //   mensagem_erro.innerHTML =
-        // "(Mensagem de erro para todos os campos em branco)";
-
-    //   finalizarAguardar();
       return false;
     } else {
-    //   setInterval(sumirMensagem, 5000);
     }
-
-    // Enviando o valor da nova input
     fetch("/feed/publicar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
         idUsuarioServer: idUsuarioVar,
         descricaoServer: TextoPostVar
       }),
@@ -123,29 +110,35 @@ function publicar() {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-        //   cardErro.style.display = "block";
-
-        //   mensagem_erro.innerHTML =
-            // "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-        //   setTimeout(() => {
+        
 
             div_PublicarPost.style.display = 'none';
             window.location = "TelaInicial.html";
-        //   }, "2000");
-
-        //   limparFormulario();
-        //   finalizarAguardar();
+        
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        // finalizarAguardar();
       });
 
     return false;
+
+}
+
+// Faz um select no post e curtidas, em que a l.fkPost = p.idPost e l.fkUsuario = u.idUsuario (salvo na sessão), se o valor da resposta for igual a zero, botão fica branco, caso contrário fica vermelho.
+
+
+function Atualizarcurtir(){
+
+
+
+}
+
+function curtir(){
+
+  
 
 
 }

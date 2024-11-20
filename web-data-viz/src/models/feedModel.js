@@ -5,7 +5,6 @@ function listar() {
     var instrucaoSql = `
         SELECT 
             p.descricao as Descricao,
-            p.qtdLikes as Likes,
             p.dataPostagem as Data,
             u.nomeCompleto as Nome
             FROM Post as p JOIN Usuarios as u ON p.fkUsario = u.idUsuario;
