@@ -8,6 +8,7 @@ function listar() {
     p.descricao as PostDescricao,
     p.dataPostagem as DataPost,
     u.nomeCompleto as NomePostou,
+    l.idLike as idLike,
     l.fkUsuario as idQuemCurtiu,
     (SELECT COUNT(*) 
      FROM LikesPost as l
@@ -17,7 +18,7 @@ function listar() {
      WHERE c.fkPost = p.idPost) as qtdComentarios
 FROM Post as p
 LEFT JOIN Usuarios as u
-    ON p.fkUsario = u.idUsuario
+    ON p.fkUsuario = u.idUsuario
 LEFT JOIN LikesPost as l ON l.fkPost = p.idPost
 LEFT JOIN Comentarios as c ON c.fkPost = p.idPost;
     `;
@@ -70,7 +71,7 @@ function listarPorUsuario(idUsuario) {
 function publicar(descricao, idUsuario) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ",  descricao, idUsuario);
     var instrucaoSql = `
-        INSERT INTO Post (descricao, fkUsario) VALUES ( '${descricao}', ${idUsuario});
+        INSERT INTO Post (descricao, fkUsuario) VALUES ( '${descricao}', ${idUsuario});
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -80,6 +81,14 @@ function curtir(fkPost, fkUsuario) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ",  fkPost, fkUsuario);
     var instrucaoSql = `
         INSERT INTO LikesPost (fkPost, fkUsuario) VALUES ( '${fkPost}', ${fkUsuario});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+function descurtir(fkPost, fkUsuario, idLike) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ",  fkPost, fkUsuario);
+    var instrucaoSql = `
+        DELETE FROM LikesPost WHERE fkPost = '${fkPost}' and fkUsuario = '${fkUsuario}' and idLike = '${idLike}';
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -112,5 +121,6 @@ module.exports = {
     publicar,
     editar,
     deletar,
-    curtir
+    curtir,
+    descurtir
 }

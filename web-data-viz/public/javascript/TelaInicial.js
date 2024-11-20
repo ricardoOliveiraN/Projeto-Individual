@@ -32,7 +32,8 @@ function AtualizarDiv() {
           var NomeDonoPost = publicacao.NomePostou;
           var QuemCurtiu = publicacao.idQuemCurtiu;
           var QuantidadeLikes = publicacao.qtdLikes;
-          var QuantidadeComentarios = publicacao.qtdComentarios;    
+          var QuantidadeComentarios = publicacao.qtdComentarios;
+          var idLikePessoa = publicacao.idLike;
           var dataCompleta = new Date(publicacao.DataPost);
           var dataSimples = dataCompleta.toLocaleDateString("pt-BR")
           DataPost = dataSimples;
@@ -40,9 +41,9 @@ function AtualizarDiv() {
 
           console.log(publicacao.qtdLikes)
 
-          if(QuemCurtiu == idUsuario ){
-            srcCoracaoBranco = '"img/love_like_heart_icon_196980.png" alt="" onclick="Descurtir()"'
-          }else if (QuemCurtiu != idUsuario) {
+          if (QuemCurtiu == idUsuario) {
+            srcCoracaoBranco = `"img/love_like_heart_icon_196980.png" alt="" onclick="Descurtir(${idPost}, ${idLikePessoa})"`
+          } else if (QuemCurtiu != idUsuario) {
             srcCoracaoBranco = `"img/heart_icon-icons.com_48290.png" alt="" onclick="curtir(${idPost})"`
           }
 
@@ -157,7 +158,7 @@ function curtir(idPost) {
         window.location = "TelaInicial.html";
 
       } else {
-        throw "Houve um erro ao tentar realizar o cadastro!";
+        throw "Houve um erro ao tentar realizar o cadastro! 1";
       }
     })
     .catch(function (resposta) {
@@ -166,4 +167,39 @@ function curtir(idPost) {
 
   return false;
 
+}
+
+function Descurtir(idPost, idLikePessoa){
+
+  var idUsuarioVar = sessionStorage.ID_USUARIO;
+  var idPostVar = idPost;
+  var idLikeVar = idLikePessoa;
+
+  fetch("/feed/descurtir", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      idUsuarioServer: idUsuarioVar,
+      idPostServer: idPostVar,
+      idLikeServer: idLikeVar
+    }),
+  })
+    .then(function (resposta) {
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+
+        window.location = "TelaInicial.html";
+
+      } else {
+        throw "Houve um erro ao tentar realizar o cadastro! 1";
+      }
+    })
+    .catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+
+  return false;
 }

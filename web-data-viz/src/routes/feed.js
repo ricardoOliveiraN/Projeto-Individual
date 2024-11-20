@@ -25,6 +25,10 @@ router.post("/curtir", function (req, res) {
     feedController.curtir(req, res);
 })
 
+router.delete("/descurtir", function (req, res) {
+    feedController.descurtir(req, res);
+})
+
 // router.put("/editar/:idfeed", function (req, res) {
 //     feedController.editar(req, res);
 // });
