@@ -15,9 +15,12 @@ router.get("/pesquisar/:descricao", function (req, res) {
     feedController.pesquisarDescricao(req, res);
 });
 
-router.post("/publicar/:idUsuario", function (req, res) {
+
+
+router.post("/publicar", function (req, res) {
     feedController.publicar(req, res);
-});
+})
+
 
 router.put("/editar/:idfeed", function (req, res) {
     feedController.editar(req, res);

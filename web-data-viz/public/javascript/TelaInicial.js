@@ -23,7 +23,7 @@ function AtualizarDiv() {
                 // feed.innerHTML = "";
                 for (let i = 0; i < resposta.length; i++) {
                     var publicacao = resposta[i];
-                    
+
 
                     var dataCompleta = new Date(publicacao.Data);
                     var dataSimples = dataCompleta.toLocaleDateString("pt-BR")
@@ -49,8 +49,8 @@ function AtualizarDiv() {
                         <img src="../img/heart_icon-icons.com_48290.png" alt="" onclick="curtir()"> <span>qtd</span>
                     </div>
                     </div> `
-                       
-                
+
+
 
 
                 }
@@ -80,10 +80,72 @@ function AtualizarDiv() {
                 </div>
 */
 
+function enviarPost() {
+
+    div_PublicarPost.style.display = 'flex';
+
+
+}
+
 function publicar() {
 
+    var idUsuarioVar = sessionStorage.ID_USUARIO;
+    var TextoPostVar = textarea_descricao.value;
 
+    // Verificando se há algum campo em branco
+    if (
+      TextoPostVar == ""
+    ){
+    //   cardErro.style.display = "block";
+    //   mensagem_erro.innerHTML =
+        // "(Mensagem de erro para todos os campos em branco)";
 
+    //   finalizarAguardar();
+      return false;
+    } else {
+    //   setInterval(sumirMensagem, 5000);
+    }
+
+    // Enviando o valor da nova input
+    fetch("/feed/publicar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        idUsuarioServer: idUsuarioVar,
+        descricaoServer: TextoPostVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+        //   cardErro.style.display = "block";
+
+        //   mensagem_erro.innerHTML =
+            // "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+        //   setTimeout(() => {
+
+            div_PublicarPost.style.display = 'none';
+            window.location = "TelaInicial.html";
+        //   }, "2000");
+
+        //   limparFormulario();
+        //   finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        // finalizarAguardar();
+      });
+
+    return false;
 
 
 }
