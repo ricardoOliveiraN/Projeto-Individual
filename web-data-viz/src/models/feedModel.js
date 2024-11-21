@@ -20,7 +20,9 @@ FROM Post as p
 LEFT JOIN Usuarios as u
     ON p.fkUsuario = u.idUsuario
 LEFT JOIN LikesPost as l ON l.fkPost = p.idPost
-LEFT JOIN Comentarios as c ON c.fkPost = p.idPost;
+LEFT JOIN Comentarios as c ON c.fkPost = p.idPost
+ORDER BY DataPost DESC 
+LIMIT 15;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

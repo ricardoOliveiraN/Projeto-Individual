@@ -38,7 +38,7 @@ function AtualizarDiv() {
           var dataSimples = dataCompleta.toLocaleDateString("pt-BR")
           DataPost = dataSimples;
           var idPost = publicacao.PostId;
-
+          
           console.log(publicacao.qtdLikes)
 
           if (QuemCurtiu == idUsuario) {
@@ -50,12 +50,12 @@ function AtualizarDiv() {
           div_ContemPost.innerHTML += `
                     
                     <div class="div_PadraoInput"> 
-                    <div class="div_Conteudo"><span>${NomeDonoPost}</span><br>
+                    <div class="div_Conteudo" onclick = "abrirPost(${idPost})"><span>${NomeDonoPost}</span><br>
                     <span>${DataPost}</span><br>
                     <span> ${DescricaoPost}</span>
                     </div>
                     <div class="div_Botoes">
-                        <img src="../img/comentario.png" alt="" onclick="comentar()"> <span>${QuantidadeComentarios}</span>
+                        <img src="../img/comentario.png" alt="" onclick="abrirPost(${idPost})"> <span>${QuantidadeComentarios}</span>
                         <img src=${srcCoracaoBranco}> <span>${QuantidadeLikes}</span>
                     </div>
                     </div> `
@@ -265,3 +265,9 @@ function AtualizarMenuLateral() {
 // <div>
 //     <li><a href="../Simulador/Simulador.html">ASSUNTO 3</a></li>
 // </div>
+
+function abrirPost(idPost){
+  sessionStorage.ID_POST = idPost; 
+  window.location = "TelaInicial.html"
+
+}
