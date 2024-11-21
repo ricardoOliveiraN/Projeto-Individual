@@ -169,7 +169,7 @@ function curtir(idPost) {
 
 }
 
-function Descurtir(idPost, idLikePessoa){
+function Descurtir(idPost, idLikePessoa) {
 
   var idUsuarioVar = sessionStorage.ID_USUARIO;
   var idPostVar = idPost;
@@ -203,3 +203,65 @@ function Descurtir(idPost, idLikePessoa){
 
   return false;
 }
+
+function AtualizarMenuLateral() {
+
+  fetch("/feed/atualizarlateral").then(function (resposta) {
+    if (resposta.ok) {
+      if (resposta.status == 204) {
+        var feed = document.getElementById("div_ContemPost");
+        var mensagem = document.createElement("span");
+        mensagem.innerHTML = "Nenhum resultado encontrado."
+        feed.appendChild(mensagem);
+        throw "Nenhum resultado encontrado!!";
+      }
+
+      resposta.json().then(function (resposta) {
+        console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+        // var feed = document.getElementById("div_ContemPost");
+        // feed.innerHTML = "";
+
+        // var idUsuario = sessionStorage.ID_USUARIO;
+
+        for (let i = 0; i < resposta.length; i++) {
+          var publicacao = resposta[i];
+
+          var DescricaoPost = publicacao.PostDescricao;
+          var NomeDonoPost = publicacao.NomePostou;
+          var DescricaoCortada = DescricaoPost.split(" ").slice(0, 3).join(" ");
+          var dataCompleta = new Date(publicacao.DataPost);
+          var dataSimples = dataCompleta.toLocaleDateString("pt-BR")
+          DataPost = dataSimples;
+
+          lista_lateral.innerHTML += `
+                      <ul>
+                        <div>
+                            <li><a href="../QuemSomos/TelaSobreNos.html"><p id= "id_DadosDono"><span id="span_1">${NomeDonoPost}</span> <span id="span_2">${DataPost}</span><br><span id="span_3">${DescricaoCortada}</span></p></a></li>
+                        </div>
+                      </ul>
+                     `
+        }
+
+        finalizarAguardar();
+      });
+    } else {
+      throw ('Houve um erro na API!');
+    }
+  }).catch(function (resposta) {
+    console.error(resposta);
+    finalizarAguardar();
+  });
+
+
+}
+
+// <div>
+//     <li><a href="../QuemSomos/TelaSobreNos.html">ASSUNTO 1</a></li>
+// </div>
+// <div>
+//     <li><a href="../Serviços/TelaServicos.html">ASSUNTO 2</a></li>
+// </div>
+// <div>
+//     <li><a href="../Simulador/Simulador.html">ASSUNTO 3</a></li>
+// </div>

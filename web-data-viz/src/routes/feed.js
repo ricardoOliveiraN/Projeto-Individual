@@ -25,6 +25,10 @@ router.post("/curtir", function (req, res) {
     feedController.curtir(req, res);
 })
 
+router.get("/atualizarlateral", function (req, res) {
+    feedController.atualizarlateral(req, res);
+})
+
 router.delete("/descurtir", function (req, res) {
     feedController.descurtir(req, res);
 })

@@ -15,7 +15,7 @@
     <script src="js/sessao.js"></script>
 </head>
 
-<body onload="AtualizarDiv(); validarSessao()">
+<body onload="AtualizarDiv(); validarSessao(); AtualizarMenuLateral()">
     <main>
 
         <div class="div_conteiner">
@@ -59,19 +59,8 @@
                     <h1>+ DISCUTIDOS</h1>
                 </div>
                 <div class="div_TextoBorda"></div>
-                <div class="div_PrincipaisAssuntos">
-                    <ul>
-                        <div>
-                            <li><a href="../QuemSomos/TelaSobreNos.html">ASSUNTO 1</a></li>
-                        </div>
-                        <div>
-                            <li><a href="../Serviços/TelaServicos.html">ASSUNTO 2</a></li>
-                        </div>
-                        <div>
-                            <li><a href="../Simulador/Simulador.html">ASSUNTO 3</a></li>
-                        </div>
-
-                    </ul>
+                <div class="div_PrincipaisAssuntos" id="lista_lateral">
+                
                 </div>
                 <div class="div_botaoPublicar"><img src="img/Publicar.png" alt="" onclick="enviarPost()"></div>
             </div>
