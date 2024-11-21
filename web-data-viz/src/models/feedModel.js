@@ -36,6 +36,7 @@ function atualizarlateral() {
 p.descricao as PostDescricao,
 u.nomeCompleto as NomePostou,
 p.dataPostagem as DataPost,
+p.idPost as PostId,
 (SELECT COUNT(*)
      FROM Comentarios as c 
      WHERE c.fkPost = p.idPost) as qtdComentarios

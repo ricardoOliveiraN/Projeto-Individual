@@ -92,6 +92,10 @@ function enviarPost() {
   div_PublicarPost.style.display = 'flex';
 
 }
+function fecharPost(){
+  div_PublicarPost.style.display = 'none';
+}
+
 
 function publicar() {
 
@@ -230,6 +234,7 @@ function AtualizarMenuLateral() {
           var DescricaoPost = publicacao.PostDescricao;
           var NomeDonoPost = publicacao.NomePostou;
           var DescricaoCortada = DescricaoPost.split(" ").slice(0, 3).join(" ");
+          var idPost = publicacao.PostId;
           var dataCompleta = new Date(publicacao.DataPost);
           var dataSimples = dataCompleta.toLocaleDateString("pt-BR")
           DataPost = dataSimples;
@@ -237,7 +242,7 @@ function AtualizarMenuLateral() {
           lista_lateral.innerHTML += `
                       <ul>
                         <div>
-                            <li><a href="../QuemSomos/TelaSobreNos.html"><p id= "id_DadosDono"><span id="span_1">${NomeDonoPost}</span> <span id="span_2">${DataPost}</span><br><span id="span_3">${DescricaoCortada}</span></p></a></li>
+                            <li><a onclick="abrirPost(${idPost})"><p id= "id_DadosDono"><span id="span_1">${NomeDonoPost}</span> <span id="span_2">${DataPost}</span><br><span id="span_3">${DescricaoCortada}</span></p></a></li>
                         </div>
                       </ul>
                      `
