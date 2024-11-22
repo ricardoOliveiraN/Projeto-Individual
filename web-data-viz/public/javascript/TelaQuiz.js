@@ -118,7 +118,7 @@ function avançar() {
         index++;
 
         if (index == 10) {
-            alert('foi')
+            dashBoard();
         }
 
         alternativaAtual = ListaAlternativas[index];
@@ -154,5 +154,13 @@ function avançar() {
         `
         
     }
+
+}
+
+function dashBoard(){
+
+    div_Funndo.style.display = 'none';
+    div_FundoDash.style.display = 'flex';
+    atualizarGrafico();
 
 }
