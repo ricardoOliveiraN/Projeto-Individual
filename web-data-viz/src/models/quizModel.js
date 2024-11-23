@@ -12,8 +12,8 @@ function listar() {
   return database.executar(instrucaoSql);
 }
 
-function buscarPorCnpj(cnpj) {
-  var instrucaoSql = `SELECT * FROM empresa WHERE cnpj = '${cnpj}'`;
+function buscarDadosUm(fkUser) {
+  var instrucaoSql = `SELECT Q1 as qtdConservador, Q2 as qtdModerado, Q3 as qtdAgressivo FROM Metricas WHERE fkQuiz = 1 and fkUsuario = ${fkUser}`;
 
   return database.executar(instrucaoSql);
 }
@@ -24,4 +24,4 @@ function publicarUm(idUsuario, q1, q2, q3) {
   return database.executar(instrucaoSql);
 }
 
-module.exports = { buscarPorCnpj, buscarPorId, publicarUm, listar };
+module.exports = { buscarDadosUm, buscarPorId, publicarUm, listar };

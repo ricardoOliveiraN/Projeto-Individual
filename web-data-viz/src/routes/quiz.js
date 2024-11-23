@@ -8,8 +8,8 @@ router.post("/quizum", function (req, res) {
     quizController.cadastrarUm(req, res);
 })
 
-router.get("/buscar", function (req, res) {
-    quizController.buscarPorCnpj(req, res);
+router.get("/dadosUm/:fkUser", function (req, res) {
+    quizController.buscarDadosUm(req, res);
 });
 
 router.get("/buscar/:id", function (req, res) {

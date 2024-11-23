@@ -142,10 +142,72 @@
     flex-wrap: nowrap;
     align-content: center;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     margin-top: 22px;
     /* border-bottom: 1px solid white; */
     background-color: white;
     border-radius: 5px;
     box-shadow: 4px 7px 13px #0000002e;
+    gap: 15px;
+}
+
+.div_DefinicaoPerfil {
+    margin-top: 10px;
+    border-radius: 10px;
+    /* border-bottom-left-radius: 15px; */
+    height: 33%;
+    background-color: #00008021;
+    width: 98%;
+    display: flex;
+    box-shadow: 4px 7px 13px #0000002e;
+    flex-direction: column;
+}
+
+.div_KpiUm {
+    display: flex;
+    border-radius: 10px;
+    height: 13%;
+    background-color: #00008021;
+    width: 98%;
+    box-shadow: 4px 7px 13px #0000002e;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.div_GraficoUm {
+    display: flex;
+    /* margin-top: 10px; */
+    border-radius: 10px;
+    /* border-bottom-left-radius: 15px; */
+    height: 44%;
+    background-color: #00008021;
+    width: 98%;
+    box-shadow: 4px 7px 13px #0000002e;
+}
+
+.div_tipo {
+    gap: 10px;
+    /* margin-right: 0px; */
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.div_quadradoPorcent {
+    color: #000080cf;
+    height: 50px;
+    width: 80px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 4px 7px 13px #0000002e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }

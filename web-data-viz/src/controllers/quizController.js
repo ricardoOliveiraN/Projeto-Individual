@@ -1,11 +1,27 @@
 var quizModel = require("../models/quizModel");
 
-function buscarPorCnpj(req, res) {
-  var cnpj = req.query.cnpj;
+function buscarDadosUm(req, res) {
+  console.log(`Buscando os votos...`);
 
-  quizModel.buscarPorCnpj(cnpj).then((resultado) => {
-    res.status(200).json(resultado);
-  });
+  var fkUser = req.params.fkUser
+
+  console.log(fkUser)
+
+  quizModel.buscarDadosUm(fkUser)
+    .then(function (resultado) {
+      if (resultado.length > 0) {
+        console.log(resultado); 
+        res.status(200).json(resultado);
+      } else {
+        console.log(fkUser)
+        res.status(204).send("Nenhum resultado encontrado!");
+      }
+    })
+    .catch(function (erro) {
+      console.log(erro);
+      console.log("Houve um erro ao buscar os votos.", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
 }
 
 function listar(req, res) {
@@ -47,7 +63,7 @@ function cadastrarUm(req, res) {
 }
 
 module.exports = {
-  buscarPorCnpj,
+  buscarDadosUm,
   buscarPorId,
   cadastrarUm,
   listar,

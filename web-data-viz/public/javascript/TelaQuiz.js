@@ -2,9 +2,9 @@ var ListaAlternativas = [
 
     {
         Enunciado: 'Por quanto tempo você deixaria seu dinheiro investido?',
-        Conservador: 'Menos de 3 anos',
+        Conservador: 'Mais de 5 anos',
         Moderado: 'De 3 a 5 anos',
-        Agressivo: 'Mais de 5 anos'
+        Agressivo: 'Menos de 3 anos'
     },
     {
         Enunciado: 'Qual tipo de investimento parece lhe agradar mais:',
@@ -58,8 +58,32 @@ var ListaAlternativas = [
         Enunciado: 'O que você considera um bom investimento?',
         Conservador: 'Algo que ofereça retorno financeiro, mas com segurança e estabilidade',
         Moderado: 'Algo que combine retorno a longo prazo com risco moderado',
-        Agressivo: 'Algo com muito potencial lucrativo, masmo que possua riscos envolvidos'
+        Agressivo: 'Algo com muito potencial lucrativo, mesmo que possua riscos envolvidos'
     }
+
+]
+
+var lista_definicoes = [
+
+    {
+        Titulo: 'Conservador',
+        Definicao: 'Com base nas suas respostas, o seu perfil atual é predominantemente conservador. Isso significa que você possui menos tolerância para possíveis riscos, ou seja, você prefere optar por empreendimentos e investimentos mais seguros e com maior estabilidade.',
+        PS: 'Vale ressaltar que o seu perfil de investidor é altamente adaptável para o momento específico da sua vida, portanto, hoje você que é conservador pode se tornar uma pessoa com perfil agressivo no futuro.'
+
+    },
+    {
+        Titulo: 'Moderado',
+        Definicao: 'Com base nas suas respostas, o seu perfil atual é predominantemente moderado. Isso significa que você possui uma maior adaptabilidade, ou seja, você está disposto a assumir pequenos riscos para aumentar seus ganhos, mas nunca deixando de lado a seguança e estabilidade.',
+        PS: 'Vale ressaltar que o seu perfil de investidor é altamente adaptável para o momento específico da sua vida, portanto, hoje você que é moderado pode se tornar uma pessoa com perfil agressivo no futuro.'
+
+    },
+    {
+        Titulo: 'Agressivo',
+        Definicao: 'Com base nas suas respostas, o seu perfil atual é predominantemente agressivo. Isso significa que você possui uma maior tolerâncias para os possíveis riscos existentes nos investimentos e empreendimento, uma vez que obter altos retornos financeiros é algo que você deseja.',
+        PS: 'Vale ressaltar que o seu perfil de investidor é altamente adaptável para o momento específico da sua vida, portanto, hoje você que é agressivo pode se tornar uma pessoa com perfil moderado no futuro.'
+
+    }
+
 
 ]
 
@@ -135,7 +159,6 @@ function avançarUm() {
             var q1Var = lista_RespostasUm[0];
             var q2Var = lista_RespostasUm[1];
             var q3Var = lista_RespostasUm[2];
-           
 
             fetch("/quiz/quizum", {
                 method: "POST",
@@ -156,10 +179,10 @@ function avançarUm() {
 
                         div_Funndo.style.display = 'none';
                         div_FundoDash.style.display = 'flex';
-                        // dashBoardUm();
+                        obterdashBoardUm();
 
                     } else {
-                        throw "Houve um erro ao tentar realizar o cadastro!";
+                        throw "Houve um erro no avançar um";
                     }
                 })
                 .catch(function (resposta) {
@@ -168,11 +191,13 @@ function avançarUm() {
 
             return false;
 
-        }
+        } else {
 
-        alternativaAtual = ListaAlternativas[indexUm];
 
-        div_Funndo.innerHTML = `
+
+            alternativaAtual = ListaAlternativas[indexUm];
+
+            div_Funndo.innerHTML = `
         
         <div class="div_PerguntasQuiz" id="div_Perguntas">
                     
@@ -201,14 +226,118 @@ function avançarUm() {
         </div>
         
         `
-
+        }
     }
 
 }
 
-function dashBoardUm() {
+function obterdashBoardUm() {
 
-    
+    var fkUser = sessionStorage.ID_USUARIO;
+
+    fetch(`/quiz/dadosUm/${fkUser}`).then(function (resposta) {
+        if (resposta.ok) {
+            if (resposta.status == 204) {
+                
+                throw "Nenhum resultado encontrado!!";
+            }
+
+            resposta.json().then(function (resposta) {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+                var qC = resposta[0].qtdConservador;
+                var qM = resposta[0].qtdModerado;
+                var qA = resposta[0].qtdAgressivo;
+                
+                plotardashBoardUm(qC, qM, qA);
+
+            });
+        } else {
+            throw ('Houve um erro na API! obterdados');
+        }
+    }).catch(function (resposta) {
+        console.error(resposta);
+        
+    });
+
+
+
+}
+
+function plotardashBoardUm(qC, qM, qA) {
+
+    var qtdConservador = qC;
+    var qtdModerado = qM;
+    var qtdAgressivo = qA;
+
+    if (qtdConservador > qtdModerado && qtdConservador > qtdAgressivo) {
+        div_DefinicaoPerfilUm.innerHTML = `
+
+         <div class="div_Titulo">
+
+            <h1>${lista_definicoes[0].Titulo}</h1>
+
+        </div>
+        <div class="div_Paragrafo">
+
+            <p>${lista_definicoes[0].Definicao}</p>
+            <p>${lista_definicoes[0].PS}</p>
+
+        </div>
+
+        `
+    } else if (qtdModerado > qtdConservador && qtdModerado > qtdAgressivo) {
+        div_DefinicaoPerfilUm.innerHTML = `
+
+        <div class="div_Titulo">
+
+           <h1>${lista_definicoes[1].Titulo}</h1>
+
+       </div>
+       <div class="div_Paragrafo">
+
+           <p>${lista_definicoes[1].Definicao}</p>
+           <p>${lista_definicoes[1].PS}</p>
+
+       </div>
+
+       `
+    } else if (qtdAgressivo > qtdModerado && qtdAgressivo > qtdConservador) {
+        div_DefinicaoPerfilUm.innerHTML = `
+
+        <div class="div_Titulo">
+
+           <h1>${lista_definicoes[2].Titulo}</h1>
+
+       </div>
+       <div class="div_Paragrafo">
+
+           <p>${lista_definicoes[2].Definicao}</p>
+           <p>${lista_definicoes[2].PS}</p>
+
+       </div>
+
+       `
+    }else{
+        div_DefinicaoPerfilUm.innerHTML = `
+
+        <div class="div_Titulo">
+
+           <h1>${lista_definicoes[2].Titulo}</h1>
+
+       </div>
+       <div class="div_Paragrafo">
+
+           <p>${lista_definicoes[2].Definicao}</p>
+           <p>${lista_definicoes[2].PS}</p>
+
+       </div>
+
+       `
+    }
+
+    div_qC.innerHTML = `${qtdConservador*10}%`;
+    div_qM.innerHTML = `${qtdModerado*10}%`;
+    div_qA.innerHTML = `${qtdAgressivo*10}%`;
 
 
 }

@@ -7,16 +7,6 @@ router.get("/listar", function (req, res) {
     feedController.listar(req, res);
 });
 
-// router.get("/listar/:idUsuario", function (req, res) {
-//     feedController.listarPorUsuario(req, res);
-// });
-
-// router.get("/pesquisar/:descricao", function (req, res) {
-//     feedController.pesquisarDescricao(req, res);
-// });
-
-
-
 router.post("/publicar", function (req, res) {
     feedController.publicar(req, res);
 })
@@ -33,12 +23,5 @@ router.delete("/descurtir", function (req, res) {
     feedController.descurtir(req, res);
 })
 
-// router.put("/editar/:idfeed", function (req, res) {
-//     feedController.editar(req, res);
-// });
-
-// router.delete("/deletar/:idfeed", function (req, res) {
-//     feedController.deletar(req, res);
-// });
 
 module.exports = router;
