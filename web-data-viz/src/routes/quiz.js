@@ -1,23 +1,23 @@
 var express = require("express");
 var router = express.Router();
 
-var empresaController = require("../controllers/empresaController");
+var quizController = require("../controllers/quizController");
 
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
-router.post("/cadastrar", function (req, res) {
-    empresaController.cadastrar(req, res);
+router.post("/quizum", function (req, res) {
+    quizController.cadastrarUm(req, res);
 })
 
 router.get("/buscar", function (req, res) {
-    empresaController.buscarPorCnpj(req, res);
+    quizController.buscarPorCnpj(req, res);
 });
 
 router.get("/buscar/:id", function (req, res) {
-  empresaController.buscarPorId(req, res);
+  quizController.buscarPorId(req, res);
 });
 
 router.get("/listar", function (req, res) {
-  empresaController.listar(req, res);
+  quizController.listar(req, res);
 });
 
 module.exports = router;
