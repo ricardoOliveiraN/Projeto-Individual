@@ -184,6 +184,9 @@
     background-color: #00008021;
     width: 98%;
     box-shadow: 4px 7px 13px #0000002e;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .div_tipo {

@@ -238,7 +238,7 @@ function obterdashBoardUm() {
     fetch(`/quiz/dadosUm/${fkUser}`).then(function (resposta) {
         if (resposta.ok) {
             if (resposta.status == 204) {
-                
+
                 throw "Nenhum resultado encontrado!!";
             }
 
@@ -247,7 +247,7 @@ function obterdashBoardUm() {
                 var qC = resposta[0].qtdConservador;
                 var qM = resposta[0].qtdModerado;
                 var qA = resposta[0].qtdAgressivo;
-                
+
                 plotardashBoardUm(qC, qM, qA);
 
             });
@@ -256,7 +256,7 @@ function obterdashBoardUm() {
         }
     }).catch(function (resposta) {
         console.error(resposta);
-        
+
     });
 
 
@@ -269,7 +269,10 @@ function plotardashBoardUm(qC, qM, qA) {
     var qtdModerado = qM;
     var qtdAgressivo = qA;
 
-    if (qtdConservador > qtdModerado && qtdConservador > qtdAgressivo) {
+    var agressivo = (qtdConservador == 0 && qtdAgressivo > 6) || (qtdModerado == 0 && qtdAgressivo > 6) || (qtdConservador < 4 && qtdAgressivo > 4);
+    var conservador = qtdConservador >= 6;
+
+    if (conservador) {
         div_DefinicaoPerfilUm.innerHTML = `
 
          <div class="div_Titulo">
@@ -285,59 +288,109 @@ function plotardashBoardUm(qC, qM, qA) {
         </div>
 
         `
-    } else if (qtdModerado > qtdConservador && qtdModerado > qtdAgressivo) {
+    } else if (agressivo) {
+
         div_DefinicaoPerfilUm.innerHTML = `
 
         <div class="div_Titulo">
 
-           <h1>${lista_definicoes[1].Titulo}</h1>
+           <h1>${lista_definicoes[2].Titulo}</h1>
 
        </div>
        <div class="div_Paragrafo">
 
+           <p>${lista_definicoes[2].Definicao}</p>
+           <p>${lista_definicoes[2].PS}</p>
+
+       </div>
+
+       `
+
+    } else {
+
+        div_DefinicaoPerfilUm.innerHTML = `
+    
+        <div class="div_Titulo">
+    
+           <h1>${lista_definicoes[1].Titulo}</h1>
+    
+       </div>
+       <div class="div_Paragrafo">
+    
            <p>${lista_definicoes[1].Definicao}</p>
            <p>${lista_definicoes[1].PS}</p>
-
+    
        </div>
-
-       `
-    } else if (qtdAgressivo > qtdModerado && qtdAgressivo > qtdConservador) {
-        div_DefinicaoPerfilUm.innerHTML = `
-
-        <div class="div_Titulo">
-
-           <h1>${lista_definicoes[2].Titulo}</h1>
-
-       </div>
-       <div class="div_Paragrafo">
-
-           <p>${lista_definicoes[2].Definicao}</p>
-           <p>${lista_definicoes[2].PS}</p>
-
-       </div>
-
-       `
-    }else{
-        div_DefinicaoPerfilUm.innerHTML = `
-
-        <div class="div_Titulo">
-
-           <h1>${lista_definicoes[2].Titulo}</h1>
-
-       </div>
-       <div class="div_Paragrafo">
-
-           <p>${lista_definicoes[2].Definicao}</p>
-           <p>${lista_definicoes[2].PS}</p>
-
-       </div>
-
+    
        `
     }
 
-    div_qC.innerHTML = `${qtdConservador*10}%`;
-    div_qM.innerHTML = `${qtdModerado*10}%`;
-    div_qA.innerHTML = `${qtdAgressivo*10}%`;
+    div_qC.innerHTML = `${qtdConservador * 10}%`;
+    div_qM.innerHTML = `${qtdModerado * 10}%`;
+    div_qA.innerHTML = `${qtdAgressivo * 10}%`;
+
+    const ctx = document.getElementById('myChart');
+
+    const labels = ['Renda Fixa', 'Renda Variável', 'FIIs', 'Criptomoeda']
+
+    const dados = [
+
+        dadosUm = [80, 10, 10, 0],
+        dadosDois = [50, 30, 15, 5],
+        dadosTres = [20, 50, 20, 10]
+
+    ]
+
+    const data = {
+        labels: labels,
+        datasets: [
+
+            {
+                label: 'Conservador',
+                data: dados[0],
+                borderColor: '#00008080',
+                backgroundColor: '#000080e3',
+            },
+            {
+                label: 'Moderado',
+                data: dados[1],
+                borderColor: '#8000219c',
+                backgroundColor: '#800021',
+            },
+            {
+                label: 'Agressivo',
+                data: dados[2],
+                borderColor: '#d4af37',
+                backgroundColor: '#ffc300',
+            }
+        ]
+    };
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    min: 0,
+                    max: 100
+                }
+            },
+
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Comparação de Perfis - Exemplos de Investimentos'
+                }
+            }
+        }
+    }
+    );
 
 
 }
+plotardashBoardUm(5, 3, 2)
