@@ -20,4 +20,8 @@ router.get("/listar", function (req, res) {
   quizController.listar(req, res);
 });
 
+router.post("/inserUser", function (req, res) {
+  quizController.inserUser(req, res);
+})
+
 module.exports = router;

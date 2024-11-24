@@ -24,4 +24,11 @@ function publicarUm(idUsuario, q1, q2, q3) {
   return database.executar(instrucaoSql);
 }
 
-module.exports = { buscarDadosUm, buscarPorId, publicarUm, listar };
+function inserUser(perfil, idUsuario){
+  var instrucaoSql = `UPDATE Usuarios SET tipoPerfil = '${perfil}' WHERE idUsuario = ${idUsuario};`;
+
+  return database.executar(instrucaoSql);
+  
+}
+
+module.exports = { buscarDadosUm, buscarPorId, publicarUm, listar, inserUser };

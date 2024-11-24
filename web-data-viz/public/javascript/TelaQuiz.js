@@ -277,8 +277,10 @@ function plotardashBoardUm(qC, qM, qA) {
 
          <div class="div_Titulo">
 
-            <h1>${lista_definicoes[0].Titulo}</h1>
-
+         <div class="div_Botao3">
+         <button onclick = "voltarQuiz()">Voltar</button>
+         </div>
+            <div class = "div_Titulo5"><h1>${lista_definicoes[0].Titulo}</h1></div>
         </div>
         <div class="div_Paragrafo">
 
@@ -288,13 +290,19 @@ function plotardashBoardUm(qC, qM, qA) {
         </div>
 
         `
+
+        inserirNoUser(lista_definicoes[0].Titulo)
+
     } else if (agressivo) {
 
         div_DefinicaoPerfilUm.innerHTML = `
 
         <div class="div_Titulo">
 
-           <h1>${lista_definicoes[2].Titulo}</h1>
+            <div class="div_Botao3">
+            <button onclick = "voltarQuiz()">Voltar</button>
+            </div>
+           <div class = "div_Titulo5"><h1>${lista_definicoes[2].Titulo}</h1></div>
 
        </div>
        <div class="div_Paragrafo">
@@ -306,14 +314,18 @@ function plotardashBoardUm(qC, qM, qA) {
 
        `
 
-    } else {
+       inserirNoUser(lista_definicoes[2].Titulo)
 
+    } else {
+        
         div_DefinicaoPerfilUm.innerHTML = `
     
         <div class="div_Titulo">
     
-           <h1>${lista_definicoes[1].Titulo}</h1>
-    
+            <div class="div_Botao3">
+                <button onclick = "voltarQuiz()"> Voltar </button>
+            </div>
+           <div class = "div_Titulo5"><h1>${lista_definicoes[1].Titulo}</h1></div>
        </div>
        <div class="div_Paragrafo">
     
@@ -323,6 +335,9 @@ function plotardashBoardUm(qC, qM, qA) {
        </div>
     
        `
+
+       inserirNoUser(lista_definicoes[1].Titulo)
+
     }
 
     div_qC.innerHTML = `${qtdConservador * 10}%`;
@@ -393,4 +408,44 @@ function plotardashBoardUm(qC, qM, qA) {
 
 
 }
-plotardashBoardUm(5, 3, 2)
+
+function inserirNoUser(dado){   
+    alert(dado)
+
+    var PerfilVar = dado;
+    var idUsuarioVar = sessionStorage.ID_USUARIO;
+    alert(idUsuarioVar)
+
+    fetch("/quiz/inserUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuarioServer: idUsuarioVar,
+          perfilServer: PerfilVar
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+    
+          if (resposta.ok) {
+
+            console.log('deu certo')
+    
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro! 1";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+    
+      return false;
+
+
+}
+
+function voltarQuiz(){
+
+}
