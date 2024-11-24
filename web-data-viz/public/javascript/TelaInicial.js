@@ -173,7 +173,7 @@ function curtir(idPost) {
 
 }
 
-function Descurtir(idPost, idLikePessoa) {
+function Descurtir(idPost, idLikePessoa) {  
 
   var idUsuarioVar = sessionStorage.ID_USUARIO;
   var idPostVar = idPost;
@@ -273,7 +273,7 @@ function AtualizarMenuLateral() {
 
 function abrirPost(idPost){
   sessionStorage.ID_POST = idPost; 
-  window.location = "TelaInicial.html"
+  window.location = "TelaComentario.html"
 
 }
 

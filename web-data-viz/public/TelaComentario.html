@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css_2/Quiz.css">
+    <link rel="stylesheet" href="css_2/Comentarios.css">
     <link rel="stylesheet" href="css_2/MenusLaterais.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     <script src="js/sessao.js"></script>
 </head>
 
-<body onload="validarSessao()">
+<body onload="buscarPost(); validarSessao(); buscarComentarios()">
     <main>
 
         <div class="div_conteiner">
@@ -44,45 +44,19 @@
                 </div>
                 <div class="div_botaoSair"><button>Sair</button></div>
             </div>
-            <div class="div_centroConteudo" id="div_ContemPost">
-
-                <div class="div_FundoPerguntasQuiz">
-                    <div class="div_PerguntasQuiz">
-                        
-                        <div class="div_Titulo">
-
-                            <span id="spanQuestaoExibida"></span>
-
-                        </div>
-                        <div class="div_Alternativas">
-
-                            <span>
-                                <input type="radio" id="primeiraOpcao" name="option" value="alternativaA" />
-                                <label for="primeiraOpcao" id="labelOpcaoUm"></label>
-                            </span>
-                            <span>
-                                <input type="radio" id="segundaOpcao" name="option" value="alternativaB" />
-                                <label for="segundaOpcao" id="labelOpcaoDois"></label>
-                            </span>
-                            <span>
-                                <input type="radio" id="terceiraOpcao" name="option" value="alternativaC" />
-                                <label for="terceiraOpcao" id="labelOpcaoTres"></label>
-                            </span>
-                            <span>
-                                <input type="radio" id="quartaOpcao" name="option" value="alternativaD" />
-                                <label for="quartaOpcao" id="labelOpcaoQuatro"></label>
-                            </span>
-
-
-                        </div>
-
-                    </div>
-                    <div class="div_Botao"></div>
-
+            <div class="div_Publicar" id="div_PublicarPost" style="display: none;">
+                <div class="div_textArea">
+                    <div id= "div_img_textArea"><img id="img_textArea" src="img/cancel_close_delete_exit_logout_remove_x_icon_123217.png" alt="" onclick="fecharPost()"></div>
+                    <textarea name="descricao" id="textarea_descricao" maxlength="250" placeholder="O que você está pensando hoje..."></textarea>
+                    <img src="img/send_120237.png" alt="" onclick="publicar()">
                 </div>
-                    
 
             </div>
+            <div class="div_centroConteudo" id="div_ContemPost">
+                <div class="div_PadraoInput" id="div_teste">  </div>
+                <div class="div_comentarios" id="div_vaiFicarComentarios"></div>
+            </div>
+
 
         </div>
 
@@ -91,7 +65,7 @@
 </body>
 
 </html>
-<script>
+<script src="javascript/TelaComentario.js">
 
 
 </script>

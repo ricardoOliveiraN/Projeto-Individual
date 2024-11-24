@@ -21,6 +21,7 @@ var feedRouter = require("./src/routes/feed");
 var medidasRouter = require("./src/routes/medidas");
 var aquariosRouter = require("./src/routes/aquarios");
 var quizRouter = require("./src/routes/quiz");
+var comentariosRouter = require("./src/routes/comentarios");
 
 // var loginUsuarioRouter = require("./src/routes/loginUser");
 
@@ -36,6 +37,7 @@ app.use("/feed", feedRouter);
 app.use("/medidas", medidasRouter);
 app.use("/aquarios", aquariosRouter);
 app.use("/quiz", quizRouter);
+app.use("/comentarios", comentariosRouter);
 // app.use("/login", loginUsuarioRouter);
 
 app.listen(PORTA_APP, function () {

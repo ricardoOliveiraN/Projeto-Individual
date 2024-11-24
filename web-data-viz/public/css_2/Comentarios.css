@@ -1,0 +1,189 @@
+.div_conteiner {
+    position: fixed;
+}
+
+.div_centroConteudo {
+
+    width: 77%;
+    margin-left: 23%;
+    margin-right: 0%;
+    height: fit-content;
+    background-color: #c0c0c0b5;
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 17px;
+}
+
+.div_PadraoInput {
+    display: flex;
+    width: 75%;
+    height: auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    /* margin-top: 36px; */
+    /* border-bottom: 1px solid white; */
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 4px 7px 13px #0000002e;
+
+}
+
+.div_Conteudo {
+    display: flex;
+    transition: 0.3s;
+    width: 95%;
+    height: 80%;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-start;
+    justify-content: flex-start;
+    margin: 16px;
+
+
+
+}
+
+/* .div_Conteudo:hover{
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
+} */
+.div_Botoes {
+    /* border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black; */
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+/* .div_Botoes:hover{
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
+} */
+.div_Botoes img {
+    height: 50%;
+    margin-left: 30px;
+    cursor: pointer;
+    object-fit: cover;
+
+}
+
+.div_Publicar {
+    padding: 0px;
+    /* border: 2px solid black; */
+    width: 99vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.555);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_textArea {
+    padding: 20px;
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    border-radius: 5px;
+}
+
+.div_Publicar textarea {
+    padding: 5px;
+    resize: none;
+    min-height: 75%;
+    max-height: 75%;
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 5px;
+}
+
+.div_textArea {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_textArea img {
+    object-fit: cover;
+    height: 50px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#div_img_textArea {
+    margin-left: -19px;
+    margin-top: -30px;
+    display: flex;
+    align-self: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+}
+
+#img_textArea {
+    object-fit: cover;
+    height: 26px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.div_comentarios {
+    overflow: scroll;
+    display: flex;
+    width: 75%;
+    height: 600px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    /* margin-top: 36px; */
+    /* border-bottom: 1px solid white; */
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 4px 7px 13px #0000002e;
+    gap: 17px;
+}
+
+.div_PadraoInput2 {
+
+    display: flex;
+    width: 75%;
+    height: auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    /* margin-top: 36px; */
+    /* border-bottom: 1px solid white; */
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #00008021;
+
+    border-radius: 5px;
+    box-shadow: 4px 7px 13px #0000002e;
+
+}

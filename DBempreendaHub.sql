@@ -11,7 +11,7 @@ CREATE TABLE Usuarios (
    );
    
 INSERT INTO Usuarios (idUsuario, nomeCompleto, numeroCelular, email, senha) VALUES
-(1, 'RICARDO DE OLIVEIRA', '11985247282', 'ricardo@gmail.com', 'Garoto04@-'); 
+(2, 'RICARDO DE OLIVEIRA NICOLAU', '11985247282', 'ricardo@gmai.com', 'Garoto04@-'); 
     
 select * from Usuarios;
 
@@ -24,7 +24,8 @@ CREATE TABLE Post (
     PRIMARY KEY (idPost, fkUsuario),
     CONSTRAINT fkUserarioPost FOREIGN KEY (fkUsuario) REFERENCES Usuarios (idUsuario)) AUTO_INCREMENT = 1000;
     
-    
+SELECT p.descricao as Descricao, p.dataPostagem as DataPostagem, u.nomeCompleto as NomeUser FROM Post as p JOIN Usuarios as u ON p.fkUsuario = u.idUsuario WHERE p.idPost = 1000;
+
 INSERT INTO Post (descricao,qtdLikes,fkUsuario) VALUES
 	('Testando a api', 1, 1);
     
@@ -48,7 +49,41 @@ CREATE TABLE Comentarios (
     descricao VARCHAR(200),
     CONSTRAINT FkPostComentario FOREIGN KEY (fkPost) REFERENCES Post (idPost),
     CONSTRAINT fkUsarioComentario FOREIGN KEY (fkUsuario) REFERENCES Usuarios (idUsuario))AUTO_INCREMENT = 10000;
+
+INSERT INTO Comentarios (fkPost, fkUsuario, descricao) VALUES
+	(1002, 1, 'Estou apenas testando17'),
+    (1002, 1, 'Estou apenas testando175'),
+    (1002, 1, 'Estou apenas testando117'),
+    (1002, 1, 'Estou apenas testando122'),
+    (1002, 1, 'Estou apenas testando19'),
+    (1002, 1, 'Estou apenas testando18');
+
+select COUNT(*) from Comentarios;
+     
+ SELECT 
+    p.idPost AS PostId,
+    p.descricao AS PostDescricao,
+    p.dataPostagem AS DataPost,
+    u.nomeCompleto AS NomePostou,
+    l.fkUsuario as idQuemCurtiu,
+    c.fkUsuario as idQuemComentou,
+    l.idLike as idLike,
+    COUNT(DISTINCT l.idLike) AS qtdLikes,
+    COUNT(DISTINCT c.idComentario) AS qtdComentarios
+    FROM Post AS p
+    LEFT JOIN Usuarios AS u
+    ON p.fkUsuario = u.idUsuario
+    LEFT JOIN LikesPost AS l 
+    ON l.fkPost = p.idPost
+    LEFT JOIN Comentarios AS c 
+    ON c.fkPost = p.idPost
+    GROUP BY p.idPost, p.descricao, p.dataPostagem, u.nomeCompleto, l.fkUsuario, c.fkUsuario, l.idLike
+    ORDER BY DataPost DESC 
+    LIMIT 15;
+
     
+SELECT descricao as DescricaoComentario, nomeCompleto as NomeQuemComentou FROM Comentarios JOIN Usuarios ON fkUsuario = idUsuario WHERE fkPost = 1002;
+
 CREATE TABLE LikesPost (
 	idLike INT AUTO_INCREMENT,
     fkPost INT,
@@ -56,8 +91,10 @@ CREATE TABLE LikesPost (
     PRIMARY KEY (idLike, fkPost, fkUsuario),
     CONSTRAINT FkPostLike FOREIGN KEY (fkPost) REFERENCES Post (idPost),
     CONSTRAINT fkUsarioLike FOREIGN KEY (fkUsuario) REFERENCES Usuarios (idUsuario))AUTO_INCREMENT = 10000;
-    
-			
+DROP TABLE LikesPost;
+INSERT INTO LikesPost (fkPost, fkUsuario) VALUES 
+	(1002, 2);
+SELECT * FROM LikesPost;
 CREATE TABLE Quiz (
 	idQuiz INT PRIMARY KEY);
 
@@ -75,6 +112,7 @@ CREATE TABLE Metricas (
     Q2 INT,
     Q3 INT);
     SELECT * FROM Usuarios;
+    SELECT * FROM Metricas;
 UPDATE Usuarios SET tipoPerfil = '' WHERE idUsuario = 1;
 DROP TABLE  Metricas;
 SELECT Q1 as qtdConservador, Q2 as qtdModerado, Q3 as qtdAgressivo FROM Metricas WHERE idQuiz = 1 and fkUser = 1;
