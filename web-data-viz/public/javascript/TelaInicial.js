@@ -276,3 +276,4 @@ function abrirPost(idPost){
   window.location = "TelaInicial.html"
 
 }
+

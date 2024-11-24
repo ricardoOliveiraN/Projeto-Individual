@@ -12,10 +12,9 @@ router.get("/dadosUm/:fkUser", function (req, res) {
     quizController.buscarDadosUm(req, res);
 });
 
-router.get("/buscar/:id", function (req, res) {
-  quizController.buscarPorId(req, res);
-});
-
+router.delete("/delquiz", function (req, res) {
+  quizController.delquiz(req, res);
+})
 router.get("/listar", function (req, res) {
   quizController.listar(req, res);
 });

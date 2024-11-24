@@ -1,8 +1,11 @@
 var database = require("../database/config");
 
-function buscarPorId(id) {
-  var instrucaoSql = `SELECT * FROM empresa WHERE id = '${id}'`;
-
+function delquiz(idUsuario) {
+  console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ");
+  var instrucaoSql = `
+      DELETE FROM Metricas WHERE fkUsuario = '${idUsuario}' and fkQuiz = '1';
+  `;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
 }
 
@@ -31,4 +34,4 @@ function inserUser(perfil, idUsuario){
   
 }
 
-module.exports = { buscarDadosUm, buscarPorId, publicarUm, listar, inserUser };
+module.exports = { buscarDadosUm, delquiz, publicarUm, listar, inserUser };

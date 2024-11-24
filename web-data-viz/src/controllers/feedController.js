@@ -77,12 +77,12 @@ function atualizarlateral(req, res) {
 function publicar(req, res) {
     var descricao = req.body.descricaoServer;
     var idUsuario = req.body.idUsuarioServer;
-    
+
 
     // Faça as validações dos valores
     if (descricao == undefined) {
         res.status(400).send("Seu nome está undefined!");
-    } 
+    }
     else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
@@ -107,47 +107,47 @@ function publicar(req, res) {
 function curtir(req, res) {
     var fkPost = req.body.idPostServer;
     var fkUsuario = req.body.idUsuarioServer;
- 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        feedModel.curtir(fkPost,fkUsuario)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    
+
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    feedModel.curtir(fkPost, fkUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
 }
 
-function descurtir(req, res){
+function descurtir(req, res) {
     var fkPost = req.body.idPostServer;
     var fkUsuario = req.body.idUsuarioServer;
     var idLike = req.body.idLikeServer;
- 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        feedModel.descurtir(fkPost,fkUsuario, idLike)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! 2 Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+
+    // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+    feedModel.descurtir(fkPost, fkUsuario, idLike)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! 2 Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
 }
 
 

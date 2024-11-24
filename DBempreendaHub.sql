@@ -6,8 +6,12 @@ CREATE TABLE Usuarios (
     nomeCompleto VARCHAR(45),
     numeroCelular CHAR(11),
     email VARCHAR(45) UNIQUE,
-    senha VARCHAR(10)
+    senha VARCHAR(20),
+    tipoPerfil VARCHAR(15)
    );
+   
+INSERT INTO Usuarios (idUsuario, nomeCompleto, numeroCelular, email, senha) VALUES
+(1, 'RICARDO DE OLIVEIRA', '11985247282', 'ricardo@gmail.com', 'Garoto04@-'); 
     
 select * from Usuarios;
 
@@ -21,12 +25,12 @@ CREATE TABLE Post (
     CONSTRAINT fkUserarioPost FOREIGN KEY (fkUsuario) REFERENCES Usuarios (idUsuario)) AUTO_INCREMENT = 1000;
     
     
-INSERT INTO Post (descricao,qtdLikes,fkUsario) VALUES
+INSERT INTO Post (descricao,qtdLikes,fkUsuario) VALUES
 	('Testando a api', 1, 1);
     
-INSERT INTO Post (descricao,qtdLikes,fkUsario) VALUES
+INSERT INTO Post (descricao,qtdLikes,fkUsuario) VALUES
 	('OLA MOISES', 1, 1);
-    INSERT INTO Post (descricao,qtdLikes,fkUsario) VALUES
+    INSERT INTO Post (descricao,qtdLikes,fkUsuario) VALUES
 	('OLA Natalia', 1, 1);
     SELECT * FROM Post;
 DELETE FROM Post WHERE idPost = 1002 and fkUsuario = 1;
@@ -62,17 +66,19 @@ INSERT INTO Quiz (idQuiz) VALUES
     (2);
 
 CREATE TABLE Metricas (
-	idMetricas INT AUTO_INCREMENT,
     fkUsuario INT,
     CONSTRAINT fkUserMetrica FOREIGN KEY (fkUsuario) REFERENCES Usuarios(idUsuario),
     fkQuiz INT,
     CONSTRAINT fkQuizMetrica FOREIGN KEY (fkQuiz) REFERENCES Quiz(idQuiz),
-    PRIMARY KEY (idMetricas, fkUsuario, fkQuiz),
+    PRIMARY KEY (fkUsuario, fkQuiz),
 	Q1 INT,
     Q2 INT,
     Q3 INT);
-    
-SELECT Q1, Q2, Q3 FROM Metricas;
+    SELECT * FROM Usuarios;
+UPDATE Usuarios SET tipoPerfil = '' WHERE idUsuario = 1;
+DROP TABLE  Metricas;
+SELECT Q1 as qtdConservador, Q2 as qtdModerado, Q3 as qtdAgressivo FROM Metricas WHERE idQuiz = 1 and fkUser = 1;
+SELECT * FROM Metricas;
 	
  INSERT INTO Comentarios (fkPost, fkUsuario, descricao) VALUES   
 	(1000, 1, 'oi');

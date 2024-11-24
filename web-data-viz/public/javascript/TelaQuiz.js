@@ -154,7 +154,7 @@ function avançarUm() {
         indexUm++;
 
         if (indexUm == 10) {
-            alert('foi')
+           
             var idUsuarioVar = sessionStorage.ID_USUARIO;
             var q1Var = lista_RespostasUm[0];
             var q2Var = lista_RespostasUm[1];
@@ -409,12 +409,13 @@ function plotardashBoardUm(qC, qM, qA) {
 
 }
 
+
 function inserirNoUser(dado){   
-    alert(dado)
+
 
     var PerfilVar = dado;
     var idUsuarioVar = sessionStorage.ID_USUARIO;
-    alert(idUsuarioVar)
+
 
     fetch("/quiz/inserUser", {
         method: "POST",
@@ -447,5 +448,33 @@ function inserirNoUser(dado){
 }
 
 function voltarQuiz(){
+    var idUsuarioVar = sessionStorage.ID_USUARIO;
 
+    
+
+    fetch("/quiz/delquiz", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          idUsuarioServer: idUsuarioVar
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+    
+          if (resposta.ok) {
+    
+            window.location = "TelaQuiz.html";
+    
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro! 1";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+        });
+    
+      return false;
 }

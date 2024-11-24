@@ -10,7 +10,7 @@ function buscarDadosUm(req, res) {
   quizModel.buscarDadosUm(fkUser)
     .then(function (resultado) {
       if (resultado.length > 0) {
-        console.log(resultado); 
+        console.log(resultado);
         res.status(200).json(resultado);
       } else {
         console.log(fkUser)
@@ -30,12 +30,24 @@ function listar(req, res) {
   });
 }
 
-function buscarPorId(req, res) {
-  var id = req.params.id;
+function delquiz(req, res) {
+  var idUsuario = req.body.idUsuarioServer;
 
-  quizModel.buscarPorId(id).then((resultado) => {
-    res.status(200).json(resultado);
-  });
+  quizModel.delquiz(idUsuario)
+    .then(
+      function (resultado) {
+        res.json(resultado);
+      }
+    ).catch(
+      function (erro) {
+        console.log(erro);
+        console.log(
+          "\nHouve um erro ao realizar o cadastro! 2 Erro: ",
+          erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+      }
+    );
 }
 
 function cadastrarUm(req, res) {
@@ -69,7 +81,7 @@ function inserUser(req, res) {
   console.log("Dados recebidos no backend:");
   console.log("idUsuario:", req.body.idUsuarioServer);
   console.log("perfil:", req.body.perfilServer);
-  
+
   console.log('foiate aqui')
 
   quizModel.inserUser(perfil, idUsuario)
@@ -91,7 +103,7 @@ function inserUser(req, res) {
 
 module.exports = {
   buscarDadosUm,
-  buscarPorId,
+  delquiz,
   cadastrarUm,
   listar,
   inserUser
