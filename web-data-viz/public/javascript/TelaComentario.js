@@ -1,13 +1,12 @@
 /*Função para atualizar o post na div*/
 /*Função para puxar todos os comentários*/
 /*Função para Comentar*/
-
+/*Fazer validação de tamanho de input*/
 
 
 function buscarPost() {
 
     var idPost = sessionStorage.ID_POST;
-    alert(idPost)
     fetch(`/comentarios/buscarPost/${idPost}`).then(function (resposta) {
       if (resposta.ok) {
         if (resposta.status == 204) {
@@ -115,6 +114,59 @@ function buscarPost() {
       finalizarAguardar();
     });
   
+  }
+
+  function publicar() {
+
+    alert('entrei aqui 1')
+
+    var idUsuarioVar = sessionStorage.ID_USUARIO;
+    var TextoPostVar = textarea_descricao.value;
+    var idPostVar = sessionStorage.ID_POST;
   
+    if (
+      TextoPostVar == ""
+    ) {
+      return false;
+    } else {
+    }
+    fetch("/comentarios/publicar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idUsuarioServer: idUsuarioVar,
+        descricaoServer: TextoPostVar,
+        idPostServer: idPostVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+  
+        if (resposta.ok) {
+            
+            alert('entrei aqui')
+            div_PublicarPost.style.display = 'none';
+            window.location = "TelaComentario.html";
+            
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  
+    return false;
   
   }
+
+  function enviarPost(){
+    div_PublicarPost.style.display = 'flex';
+  }
+
+  function fecharPost(){
+    div_PublicarPost.style.display = 'none';
+  }
+  

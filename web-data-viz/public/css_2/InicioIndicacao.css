@@ -52,6 +52,7 @@
     align-content: flex-start;
     justify-content: flex-start;
     margin: 16px;
+    word-break: break-word;
 
 
 
@@ -132,10 +133,11 @@
 .div_textArea img {
     object-fit: cover;
     height: 50px;
-    cursor:pointer;
-    margin-top: 15px ;
+    cursor: pointer;
+    margin-top: 15px;
 }
-#div_img_textArea{
+
+#div_img_textArea {
     margin-left: -19px;
     margin-top: -30px;
     display: flex;
@@ -144,9 +146,10 @@
     align-items: flex-start;
 
 }
-#img_textArea{
+
+#img_textArea {
     object-fit: cover;
     height: 26px;
-    cursor:pointer;
-    margin-top: 15px ;
+    cursor: pointer;
+    margin-top: 15px;
 }

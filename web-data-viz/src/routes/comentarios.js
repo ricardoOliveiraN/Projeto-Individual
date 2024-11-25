@@ -11,6 +11,11 @@ router.get("/buscarComentarios/:idPost", function (req, res) {
     comentariosController.buscarComentarios(req, res);
 });
 
+router.post("/publicar", function (req, res) {
+    comentariosController.publicar(req, res);
+})
+
+
 
 
 module.exports = router;

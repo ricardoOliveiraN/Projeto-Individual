@@ -47,9 +47,39 @@ function buscarComentarios (req, res){
       res.status(500).json(erro.sqlMessage);
     });
 }
+function publicar(req, res) {
+  var descricao = req.body.descricaoServer;
+  var idUsuario = req.body.idUsuarioServer;
+  var idPost = req.body.idPostServer;
 
+
+  // Faça as validações dos valores
+  if (descricao == undefined) {
+      res.status(400).send("Seu nome está undefined!");
+  }
+  else {
+
+      // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+      comentariosModel.publicar(descricao, idUsuario, idPost)
+          .then(
+              function (resultado) {
+                  res.json(resultado);
+              }
+          ).catch(
+              function (erro) {
+                  console.log(erro);
+                  console.log(
+                      "\nHouve um erro ao realizar o cadastro! Erro: ",
+                      erro.sqlMessage
+                  );
+                  res.status(500).json(erro.sqlMessage);
+              }
+          );
+  }
+}
 
 module.exports = {
     buscarPost,
-    buscarComentarios
+    buscarComentarios,
+    publicar
 };

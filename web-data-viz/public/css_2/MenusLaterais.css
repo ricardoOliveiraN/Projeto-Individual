@@ -139,7 +139,8 @@ body {
     margin-top: -21px;
 
 }
-.div_PrincipaisAssuntos{
+
+.div_PrincipaisAssuntos {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -147,6 +148,7 @@ body {
     justify-content: flex-start;
     align-items: baseline;
 }
+
 /* .div_PrincipaisAssuntos ul div {
     display: flex;
     width: 204.89px;
@@ -184,6 +186,23 @@ body {
     cursor: pointer;
 }
 
+.div_botaoPublicar2 {
+    right: 22px;
+    position: fixed;
+    bottom: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 52px;
+    cursor: pointer;
+}
+
+
+
 .div_botaoPublicar:hover {
     width: 85px;
     height: 85px;
@@ -196,20 +215,23 @@ body {
     border-radius: 50%;
 }
 
-#id_DadosDono{   
+#id_DadosDono {
     line-height: 1.5;
 }
-#span_1{
-    color:black;
+
+#span_1 {
+    color: black;
     font-size: 11px;
 }
-#span_2{
 
-    color:blue;
+#span_2 {
+
+    color: blue;
     font-size: 11px;
 
 }
-#span_3{
-    color:black;
+
+#span_3 {
+    color: black;
     font-size: 16px;
 }

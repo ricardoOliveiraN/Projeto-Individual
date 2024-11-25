@@ -1,6 +1,7 @@
 /*QUERO BUSCAR OS POSTS DO BANCO DE DADOS E COLOCAR NA DIV*/
 /*QUERO BUSCAR OS COMENTÁRIOS DO BANCO DE DADOS E COLOCAR NA DIV*/
 /*ao clicar no coração (botão), chamará uma função de UPDATE para aumentar a quantidade de like*/
+/*Fazer validação de tamanho de input*/
 
 
 
