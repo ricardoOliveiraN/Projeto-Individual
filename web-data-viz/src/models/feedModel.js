@@ -33,7 +33,7 @@ function atualizarlateral() {
 
     console.log("ACESSEI O AVISO  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
     var instrucaoSql = `
-        SELECT 
+     SELECT 
 p.descricao as PostDescricao,
 u.nomeCompleto as NomePostou,
 p.dataPostagem as DataPost,
@@ -45,6 +45,7 @@ FROM Post as p
 LEFT JOIN Usuarios as u
     ON p.fkUsuario = u.idUsuario
 LEFT JOIN Comentarios as c ON c.fkPost = p.idPost
+GROUP BY p.descricao, u.nomeCompleto, p.dataPostagem, p.idPost
 ORDER BY qtdComentarios DESC LIMIT 3;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

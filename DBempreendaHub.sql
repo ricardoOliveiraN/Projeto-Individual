@@ -58,7 +58,8 @@ INSERT INTO Comentarios (fkPost, fkUsuario, descricao) VALUES
     (1002, 1, 'Estou apenas testando19'),
     (1002, 1, 'Estou apenas testando18');
 
-select COUNT(*) from Comentarios;
+select * from Comentarios;
+DROP TABLE Comentarios;
      
  SELECT 
     p.idPost AS PostId,
