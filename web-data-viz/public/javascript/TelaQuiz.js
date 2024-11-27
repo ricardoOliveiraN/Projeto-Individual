@@ -370,13 +370,13 @@ function plotardashBoardUm(qC, qM, qA) {
                 label: 'Moderado',
                 data: dados[1],
                 borderColor: '#8000219c',
-                backgroundColor: '#800021',
+                backgroundColor: '#ffc300' ,
             },
             {
                 label: 'Agressivo',
                 data: dados[2],
                 borderColor: '#d4af37',
-                backgroundColor: '#ffc300',
+                backgroundColor: '#800021',
             }
         ]
     };
