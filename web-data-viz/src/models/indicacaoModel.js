@@ -8,6 +8,8 @@ function listar() {
     i.idPost AS PostId,
     i.descricao AS PostDescricao,
     i.dataPostagem AS DataPost,
+    i.titulo as Titulo,
+    i.autor as Autor,
     u.nomeCompleto AS NomePostou,
     l.fkUsuario as idQuemCurtiu,
     c.fkUsuario as idQuemComentou,
@@ -21,7 +23,7 @@ function listar() {
     ON l.fkPost = i.idPost
     LEFT JOIN ComentariosIndicacao AS c 
     ON c.fkPost = i.idPost
-    GROUP BY i.idPost, i.descricao, i.dataPostagem, u.nomeCompleto, l.fkUsuario, c.fkUsuario, l.idLike
+    GROUP BY i.idPost, i.descricao, i.dataPostagem, i.titulo, i.autor, u.nomeCompleto, l.fkUsuario, c.fkUsuario, l.idLike
     ORDER BY DataPost DESC 
     LIMIT 15;
     `;
@@ -54,10 +56,10 @@ ORDER BY qtdLikesIndicacao DESC LIMIT 3;
 
 }
 
-function publicar(descricao, idUsuario) {
+function publicar(autor, titulo, descricao, idUsuario) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", descricao, idUsuario);
     var instrucaoSql = `
-        INSERT INTO Indicacao (descricao, fkUsuario) VALUES ( '${descricao}', ${idUsuario});
+        INSERT INTO Indicacao (autor,titulo,descricao, fkUsuario) VALUES ( '${autor}','${titulo}','${descricao}', ${idUsuario});
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

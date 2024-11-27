@@ -32,6 +32,8 @@ function AtualizarDiv() {
             var dataSimples = dataCompleta.toLocaleDateString("pt-BR")
             DataPost = dataSimples;
             var idPost = publicacao.PostId;
+            var titulo = publicacao.Titulo;
+            var autor = publicacao.Autor;
             
             console.log(publicacao.qtdLikes)
   
@@ -46,6 +48,8 @@ function AtualizarDiv() {
                       <div class="div_PadraoInput"> 
                       <div class="div_Conteudo" onclick = "abrirPost(${idPost})"><span>${NomeDonoPost}</span><br>
                       <span>${DataPost}</span><br>
+                      <span>${titulo}</span><br>
+                      <span>${auto}</span><br>
                       <span> ${DescricaoPost}</span>
                       </div>
                       <div class="div_Botoes">
@@ -83,12 +87,14 @@ function AtualizarDiv() {
   
   
   function publicar() {
-  
+    
+    var tituloVar = inp_nomeObra.value;
+    var autorVar = inp_autorObra.value;
     var idUsuarioVar = sessionStorage.ID_USUARIO;
     var TextoPostVar = textarea_descricao.value;
   
     if (
-      TextoPostVar == ""
+      TextoPostVar == "" || tituloVar == "" || autorVar == "" || TextoPostVar.length > 200 || tituloVar.length > 200 || autorVar.length > 200
     ) {
       return false;
     } else {
@@ -100,7 +106,9 @@ function AtualizarDiv() {
       },
       body: JSON.stringify({
         idUsuarioServer: idUsuarioVar,
-        descricaoServer: TextoPostVar
+        descricaoServer: TextoPostVar,
+        tituloServer: tituloVar,
+        autorServer: autorVar
       }),
     })
       .then(function (resposta) {

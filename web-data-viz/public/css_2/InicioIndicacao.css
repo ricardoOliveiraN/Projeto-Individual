@@ -1,3 +1,4 @@
+
 .div_conteiner {
     position: relative;
 }
@@ -152,4 +153,87 @@
     height: 26px;
     cursor: pointer;
     margin-top: 15px;
+}
+
+.div_Publicar2 input {
+    padding: 5px;
+    resize: none;
+    min-height: 9%;
+    max-height: 15%;
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 5px;
+    border: 0.5px solid gray;
+    font-family: "Source Code Pro", monospace;
+}
+
+.input_indicacao {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_textArea {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.div_Publicar2 {
+    padding: 0px;
+    /* border: 2px solid black; */
+    width: 99vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.555);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.div_Publicar2 textarea {
+    padding: 5px;
+    resize: none;
+    min-height: 46%;
+    max-height: 60%;
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 5px;
+    font-family: "Source Code Pro", monospace;
+}
+
+.div_textArea2 {
+    padding: 20px;
+    width: 58%;
+    height: 60%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    border-radius: 5px;
+    gap: 5px;
+    
+}
+
+.div_textArea2 {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_textArea2 img {
+    object-fit: cover;
+    height: 50px;
+    cursor: pointer;
+    margin-top: 15px;
+    
 }

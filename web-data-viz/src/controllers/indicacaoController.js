@@ -75,6 +75,9 @@ function atualizarlateral(req, res) {
 // }
 
 function publicar(req, res) {
+
+    var titulo = req.body.tituloServer;
+    var autor = req.body.autorServer;
     var descricao = req.body.descricaoServer;
     var idUsuario = req.body.idUsuarioServer;
 
@@ -86,7 +89,7 @@ function publicar(req, res) {
     else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        indicacaoModel.publicar(descricao, idUsuario)
+        indicacaoModel.publicar(autor, titulo, descricao, idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
