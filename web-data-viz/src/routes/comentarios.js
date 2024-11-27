@@ -14,7 +14,18 @@ router.get("/buscarComentarios/:idPost", function (req, res) {
 router.post("/publicar", function (req, res) {
     comentariosController.publicar(req, res);
 })
+/*Tela comentário 2*/
+router.get("/buscarIndicacao/:idPost", function (req, res) {
+    comentariosController.buscarIndicacao(req, res);
+});
 
+router.get("/buscarComentariosIndicacao/:idPost", function (req, res) {
+    comentariosController.buscarComentariosIndicacao(req, res);
+});
+
+router.post("/publicarComentario", function (req, res) {
+    comentariosController.publicarComentario(req, res);
+})
 
 
 

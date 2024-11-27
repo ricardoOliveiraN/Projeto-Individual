@@ -7,7 +7,7 @@
 function buscarPost() {
 
     var idPost = sessionStorage.ID_POST;
-    fetch(`/comentarios/buscarPost/${idPost}`).then(function (resposta) {
+    fetch(`/comentarios/buscarIndicacao/${idPost}`).then(function (resposta) {
       if (resposta.ok) {
         if (resposta.status == 204) {
           throw "Nenhum resultado encontrado!! - aqui 1";
@@ -15,31 +15,30 @@ function buscarPost() {
   
         resposta.json().then(function (resposta) {
           console.log("Dados recebidos: ", JSON.stringify(resposta));
-
- 
+   
             var publicacao = resposta[0];
   
             var DescricaoPost = publicacao.Descricao;
             var NomeDonoPost = publicacao.NomeUser;
-   
+            var titulo = publicacao.TituloObra;
+            var autor = publicacao.NomeAutor;
+        
             var dataCompleta = new Date(publicacao.DataPostagem);
             var dataSimples = dataCompleta.toLocaleDateString("pt-BR")
             DataPost = dataSimples;
-
             
             console.log(publicacao.qtdLikes)
 
   
             div_teste.innerHTML += `
                       
-              
                       <div class="div_Conteudo"><span>${NomeDonoPost}</span><br>
                       <span>${DataPost}</span><br>
-                      <span> ${DescricaoPost}</span>
-            
+                      <span>Título: ${titulo}</span><br>
+                      <span>Autor: ${autor}</span><br>
+                      <span>Resenha: ${DescricaoPost}</span>
+                      </div>            
                          `
-  
-  
 
         });
       } else {
@@ -47,7 +46,7 @@ function buscarPost() {
       }
     }).catch(function (resposta) {
       console.error(resposta);
-      finalizarAguardar();
+
     });
   
   
@@ -57,17 +56,19 @@ function buscarPost() {
 
   function buscarComentarios() {
     var idPost = sessionStorage.ID_POST;
-    fetch(`/comentarios/buscarComentarios/${idPost}`).then(function (resposta) {
+    fetch(`/comentarios/buscarComentariosIndicacao/${idPost}`).then(function (resposta) {
       if (resposta.ok) {
         if (resposta.status == 204) {
-
+          var feed = document.getElementById("div_ContemPost");
+          var mensagem = document.createElement("span");
+          mensagem.innerHTML = "Nenhum resultado encontrado."
+          feed.appendChild(mensagem);
           throw "Nenhum resultado encontrado!!";
         }
   
         resposta.json().then(function (resposta) {
           console.log("Dados recebidos: ", JSON.stringify(resposta));
   
-
   
           for (let i = 0; i < resposta.length; i++) {
             var publicacao = resposta[i];
@@ -87,14 +88,13 @@ function buscarPost() {
   
   
           }
-
         });
       } else {
         throw ('Houve um erro na API!');
       }
     }).catch(function (resposta) {
       console.error(resposta);
-
+      finalizarAguardar();
     });
   
   }
@@ -113,7 +113,7 @@ function buscarPost() {
       return false;
     } else {
     }
-    fetch("/comentarios/publicar", {
+    fetch("/comentarios/publicarComentario", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -130,7 +130,7 @@ function buscarPost() {
         if (resposta.ok) {
             
             div_PublicarPost.style.display = 'none';
-            window.location = "TelaComentario.html";
+            window.location = "TelaComentario2.html";
             
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";

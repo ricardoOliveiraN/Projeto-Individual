@@ -57,6 +57,22 @@ INSERT INTO Comentarios (fkPost, fkUsuario, descricao) VALUES
     (1002, 1, 'Estou apenas testando122'),
     (1002, 1, 'Estou apenas testando19'),
     (1002, 1, 'Estou apenas testando18');
+    
+       SELECT 
+p.descricao as PostDescricao,
+u.nomeCompleto as NomePostou,
+p.dataPostagem as DataPost,
+p.idPost as PostId,
+(SELECT COUNT(*)
+     FROM Comentarios as c 
+     WHERE c.fkPost = p.idPost) as qtdComentarios
+FROM Post as p
+LEFT JOIN Usuarios as u
+    ON p.fkUsuario = u.idUsuario
+LEFT JOIN Comentarios as c ON c.fkPost = p.idPost
+GROUP BY p.descricao, u.nomeCompleto, p.dataPostagem, p.idPost
+ORDER BY qtdComentarios DESC LIMIT 3
+;
 
 select * from Comentarios;
 DROP TABLE Comentarios;
@@ -158,4 +174,51 @@ LEFT JOIN Usuarios as u
 LEFT JOIN Comentarios as c ON c.fkPost = p.idPost
 ORDER BY qtdComentarios DESC LIMIT 3;
 
+
+CREATE TABLE Indicacao (
+	idPost INT  AUTO_INCREMENT,
+    descricao VARCHAR(200),
+    qtdLikes INT, 
+	titulo VARCHAR(200),
+    autor VARCHAR(200),
+    dataPostagem DATETIME DEFAULT CURRENT_TIMESTAMP,
+    fkUsuario INT,
+    PRIMARY KEY (idPost, fkUsuario),
+    CONSTRAINT fkUserarioIndicacao FOREIGN KEY (fkUsuario) REFERENCES Usuarios (idUsuario)) AUTO_INCREMENT = 20000;
 	
+CREATE TABLE ComentariosIndicacao (
+	idComentario INT AUTO_INCREMENT,
+    fkPost INT,
+    fkUsuario INT,
+    PRIMARY KEY (idComentario, fkPost, fkUsuario),
+    descricao VARCHAR(200),
+    CONSTRAINT FkIndicacaoComentario FOREIGN KEY (fkPost) REFERENCES Indicacao (idPost),
+    CONSTRAINT fkUsarioComentarioIndicacao FOREIGN KEY (fkUsuario) REFERENCES Usuarios (idUsuario))AUTO_INCREMENT = 20000;
+    
+
+
+CREATE TABLE LikesIndicacao (
+	idLike INT AUTO_INCREMENT,
+    fkPost INT,
+    fkUsuario INT,
+    PRIMARY KEY (idLike, fkPost, fkUsuario),
+    CONSTRAINT FkIndicacaoLike FOREIGN KEY (fkPost) REFERENCES Indicacao (idPost),
+    CONSTRAINT fkUsarioLikeIndicacao FOREIGN KEY (fkUsuario) REFERENCES Usuarios (idUsuario))AUTO_INCREMENT = 20000;
+
+
+
+
+     SELECT 
+i.descricao as PostDescricao,
+u.nomeCompleto as NomePostou,
+i.dataPostagem as DataPost,
+i.idPost as PostId,
+(SELECT COUNT(*)
+     FROM LikesIndicacao 
+     WHERE fkPost = i.idPost) as qtdLikesIndicacao
+FROM Indicacao AS i
+LEFT JOIN Usuarios as u
+    ON i.fkUsuario = u.idUsuario
+LEFT JOIN LikesIndicacao as l ON l.fkPost = i.idPost
+GROUP BY i.descricao, u.nomeCompleto, i.dataPostagem, i.idPost
+ORDER BY qtdLikesIndicacao DESC LIMIT 3;

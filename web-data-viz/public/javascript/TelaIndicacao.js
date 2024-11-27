@@ -256,7 +256,7 @@ function AtualizarDiv() {
   
   function abrirPost(idPost){
     sessionStorage.ID_POST = idPost; 
-    window.location = "TelaComentario.html"
+    window.location = "TelaComentario2.html"
   
   }
   
