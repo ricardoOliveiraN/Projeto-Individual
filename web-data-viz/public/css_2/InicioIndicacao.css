@@ -6,7 +6,7 @@
 .div_centroConteudo {
 
     width: 57%;
-    overflow: auto;
+    /* overflow: auto; */
     margin-left: 23%;
     margin-right: 0%;
     height: fit-content;
@@ -22,7 +22,7 @@
 .div_PadraoInput {
     display: flex;
     width: 75%;
-    height: 250px;
+    height: auto;
     flex-direction: column;
     flex-wrap: nowrap;
     align-content: center;
@@ -82,7 +82,8 @@
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); 
 } */
 .div_Botoes img {
-    height: 50%;
+    width: 27px;
+    height: 32%;
     margin-left: 30px;
     cursor: pointer;
     object-fit: cover;

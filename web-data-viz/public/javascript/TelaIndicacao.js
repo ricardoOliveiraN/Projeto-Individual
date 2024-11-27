@@ -48,9 +48,9 @@ function AtualizarDiv() {
                       <div class="div_PadraoInput"> 
                       <div class="div_Conteudo" onclick = "abrirPost(${idPost})"><span>${NomeDonoPost}</span><br>
                       <span>${DataPost}</span><br>
-                      <span>${titulo}</span><br>
-                      <span>${auto}</span><br>
-                      <span> ${DescricaoPost}</span>
+                      <span>Título: ${titulo}</span><br>
+                      <span>Autor: ${autor}</span><br>
+                      <span>Resenha: ${DescricaoPost}</span>
                       </div>
                       <div class="div_Botoes">
                           <img src="../img/comentario.png" alt="" onclick="abrirPost(${idPost})"> <span>${QuantidadeComentarios}</span>
