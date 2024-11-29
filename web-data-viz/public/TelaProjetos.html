@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css_2/TelaProjeto.css">
+    <link rel="stylesheet" href="css_2/MenusLaterais.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+    <script src="js/sessao.js"></script>
+</head>
+
+<!-- <body onload="buscarPost(); validarSessao(); buscarComentarios()"> -->
+
+<body>
+    <main>
+
+        <div class="div_conteiner">
+
+            <div class="div_menuLateralEsquerda">
+                <div class="div_logo"><img src="img/LogoLateral.png" alt=""></div>
+                <div class="div_dadosUser"></div>
+                <div class="div_botoesInterativos">
+                    <ul>
+                        <div>
+                            <li><a href="TelaInicial.html">Página Inicial</a></li>
+                        </div>
+                        <div>
+                            <li><a href="../Serviços/TelaServicos.html">Indicações</a></li>
+                        </div>
+                        <div>
+                            <li><a href="../Simulador/Simulador.html">Projetos</a></li>
+                        </div>
+                        <div>
+                            <li><a href="TelaQuiz.html">Quiz</a></li>
+                        </div>
+                        <div>
+                            <li><a href="../Contato/TelaFaleConosco.Html">Perfil</a></li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="div_botaoSair"><button>Sair</button></div>
+            </div>
+            <div class="div_centroConteudo" id="div_ContemTudo">
+
+                <div class="div_PrimeiraParte" style="display:none">
+                    <div class="titulo_Projetos">
+                        <h1>PROJETOS</h1>
+                        <h5>(0/3)</h5>
+                    </div>
+
+                    <div class="div_projeto1">
+                        <div class="div_textoP">
+                            <div class="linha1">
+                                <h4>Nome do Projeto:</h4><span>xxxx</span>
+                            </div>
+                            <div class="linha2">
+                                <h4>Status:</h4><span>xxxx</span>
+                            </div>
+                            <div class="linha3">
+                                <h4>Data início:</h4><span>xxxx</span>
+                            </div>
+                        </div>
+                        <div class="div_img"><img src="img/plus_icon_227338.png"></div>
+                    </div>
+                    <div class="div_projeto2">
+                        <div class="div_textoP">
+                            <div class="linha1">
+                                <h4>Nome do Projeto:</h4><span>xxxx</span>
+                            </div>
+                            <div class="linha2">
+                                <h4>Status:</h4><span>xxxx</span>
+                            </div>
+                            <div class="linha3">
+                                <h4>Data início:</h4><span>xxxx</span>
+                            </div>
+                        </div>
+                        <div class="div_img"><img src="img/plus_icon_227338.png"></div>
+                    </div>
+                    <div class="div_projeto3">
+                        <div class="div_textoP">
+                            <div class="linha1">
+                                <h4>Nome do Projeto:</h4><span>xxxx</span>
+                            </div>
+                            <div class="linha2">
+                                <h4>Status:</h4><span>xxxx</span>
+                            </div>
+                            <div class="linha3">
+                                <h4>Data início:</h4><span>xxxx</span>
+                            </div>
+                        </div>
+                        <div class="div_img"><img src="img/plus_icon_227338.png"></div>
+                    </div>
+                </div>
+
+                <div class="div_SegundaParte" style="display: none;">
+
+                    <div class="linhaSP_1">
+                        <h3>Nome do Projeto:</h3><span><input type="text" placeholder="Nome do projeto..."></span>
+                    </div>
+                    <div class="linhaSP_2">
+                        <h3>Público alvo:</h3><span><input type="text" placeholder="Público alvo..."></span>
+                    </div>
+                    <div class="linhaSP_4">
+                        <h3>Solução:</h3><span><textarea name="" id=""
+                                placeholder="Solução encontrada..."></textarea></span>
+                    </div>
+                    <div class="linhaSP_5">
+                        <h3>Status:</h3><span><select name="" id="">
+                                <option value="">Em andamento</option>
+                                <option value="">Standby</option>
+                                <option value="">Inativo</option>
+                            </select></textarea></span>
+                    </div>
+                    <div class="linhaSP_6">
+                        <button>Adicionar Projeto</button>
+                        <button>Ver gráficos</button>
+                    </div>
+
+                </div>
+
+                <div class="div_TerceiraParte" style="display: none;" >
+
+                    <div class="linhaTP_1">
+                        <div class="div_img2"><img src="img/arrows-keyboard-return_98211.png" alt=""></div>
+                        <div class="titulo">
+                            <h1>BACKLOG</h1>
+                        </div>
+                    </div>
+                    <div class="div_conterRequisitos">
+
+
+
+                    </div>
+                    <div class="div_AdicionarRequisitos">
+                        <button>Adicionar requisito</button>
+                    </div>
+
+                </div>
+
+                <div class="div_QuartaParte">
+                    <div class="linhaQP_1">
+                        <div class="div_img3"><img src="img/arrows-keyboard-return_98211.png" alt=""></div>
+                        <div class="titulo2">
+                            <h1>GRÁFICOS</h1>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+</body>
+
+</html>
+<script src="">
+
+
+</script>

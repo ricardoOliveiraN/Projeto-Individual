@@ -1,0 +1,371 @@
+.div_centroConteudo {
+
+    width: 77%;
+    margin-left: 23%;
+    margin-right: 0%;
+    height: 633px;
+    background-color: #c0c0c0b5;
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
+}
+
+/*PRIMEIRA PARTE*/
+
+.div_PrimeiraParte {
+
+    height: 633px;
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
+
+}
+
+.titulo_Projetos {
+    display: flex;
+    width: 248px;
+    height: 53px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background: black;
+    color: white;
+    border-radius: 14px;
+    margin-top: 13px;
+    align-content: center;
+    box-shadow: 4px 7px 13px #000000b8;
+}
+
+.div_projeto1 {
+    width: 758px;
+    height: 119px;
+    border-radius: 10px;
+    background-color: #8000204d;
+    box-shadow: 4px 7px 13px #000000b8;
+    display: flex;
+    flex-direction: row;
+}
+
+.div_projeto2 {
+    width: 758px;
+    height: 119px;
+    border-radius: 10px;
+    background-color: #8000204d;
+    box-shadow: 4px 7px 13px #000000b8;
+    display: flex;
+    flex-direction: row;
+}
+
+.div_projeto3 {
+    width: 758px;
+    height: 119px;
+    border-radius: 10px;
+    background-color: #8000204d;
+    box-shadow: 4px 7px 13px #000000b8;
+    display: flex;
+    flex-direction: row;
+}
+
+.linha1 {
+    height: 33%;
+    /* width: 14%; */
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 15px;
+
+}
+
+.linha1 span {
+    margin-left: 6px;
+}
+
+.linha2 {
+    height: 33%;
+    /* width: 14%; */
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.linha2 span {
+    margin-left: 6px;
+}
+
+.linha3 {
+    height: 33%;
+    /* width: 14%; */
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.linha3 span {
+    margin-left: 6px;
+}
+
+.div_textoP {
+    width: 50%;
+}
+
+.div_img {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_img img {
+    width: 66px;
+    height: 66px;
+    cursor: pointer;
+}
+
+/*SEGUNDA PARTE*/
+
+.div_SegundaParte {
+    width: 86%;
+    margin-top: 10px;
+    height: 610px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    background-color: #8000204d;
+    box-shadow: 4px 7px 13px #000000b8;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.div_SegundaParte span {
+    margin-left: 8px;
+}
+
+.div_SegundaParte input {
+    border: none;
+    border-radius: 5px;
+    width: 222px;
+    height: 33px;
+    padding: 3px 6px 4px 7px;
+    font-family: "Source Code Pro", monospace;
+    font-size: 12px;
+}
+
+.div_SegundaParte textarea {
+    resize: none;
+    border: none;
+    border-radius: 5px;
+    width: 537px;
+    height: 100px;
+    padding: 3px 6px 4px 7px;
+    font-family: "Source Code Pro", monospace;
+    font-size: 12px;
+}
+
+.div_SegundaParte select {
+    border: none;
+    border-radius: 5px;
+    width: 152px;
+    height: 32px;
+    font-family: "Source Code Pro", monospace;
+}
+
+
+
+.linhaSP_1 {
+    display: flex;
+    height: 14%;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
+
+.linhaSP_2 {
+    display: flex;
+    height: 14%;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
+
+
+.linhaSP_4 {
+    display: flex;
+    height: 26%;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
+
+.linhaSP_5 {
+    display: flex;
+    height: 14%;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
+
+.linhaSP_6 {
+    display: flex;
+    height: 14%;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
+
+.linhaSP_6 button {
+    margin-left: 25px;
+    border: none;
+    width: 173px;
+    height: 48px;
+    font-weight: bold;
+    color: white;
+    background-color: #00008073;
+    border-radius: 26px;
+    cursor: pointer;
+    font-family: "Source Code Pro", monospace;
+    font-size: 14px;
+}
+
+/*Terceira Parte - Adição de requisitos*/
+
+.div_TerceiraParte {
+    width: 86%;
+    margin-top: 10px;
+    height: 610px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    background-color: #8000204d;
+    box-shadow: 4px 7px 13px #000000b8;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.linhaTP_1{
+    display: flex;
+}
+
+.div_img2{
+    top: 25px;
+    left: 417px;
+    position: fixed;
+}
+.div_img2 img {
+    width: 41px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.titulo {
+    display: flex;
+    width: 248px;
+    height: 53px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background: black;
+    color: white;
+    border-radius: 14px;
+    margin-top: 13px;
+    align-content: center;
+    box-shadow: 4px 7px 13px #000000b8;
+}
+
+.div_conterRequisitos {
+    margin-top: 8px;
+    width: 80%;
+    height: 65%;
+    overflow-y: scroll;
+    box-shadow: 4px 7px 13px #000000b8;
+    background-color:  #00008073 ;
+    border-radius: 8px;
+}
+
+.div_AdicionarRequisitos {
+    margin-top: 21px;
+    display: flex;
+    width: 80%;
+    justify-content: flex-end;
+}
+
+.div_AdicionarRequisitos button {
+    margin-left: 25px;
+    border: none;
+    width: 173px;
+    height: 48px;
+    font-weight: bold;
+    color: white;
+    background-color: #00008073;
+    border-radius: 26px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/*QUARTA PARTE - GRÁFICOS*/
+
+.div_QuartaParte{
+    width: 86%;
+    margin-top: 10px;
+    height: 610px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    background-color: #8000204d;
+    box-shadow: 4px 7px 13px #000000b8;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+.linhaQP_1{
+    display: flex;
+}
+.titulo2{
+    display: flex;
+    width: 248px;
+    height: 53px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background: black;
+    color: white;
+    border-radius: 14px;
+    margin-top: 13px;
+    align-content: center;
+    box-shadow: 4px 7px 13px #000000b8;
+}
+.div_img3{
+    top: 25px;
+    left: 417px;
+    position: fixed;
+}
+.div_img3 img {
+    width: 41px;
+    height: 40px;
+    cursor: pointer;
+}
