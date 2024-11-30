@@ -169,15 +169,37 @@
                     </div>
                     <div class="div_conterRequisitos">
 
+                        <div class="div_requisitos">
 
+                            <div class="div_textoReq">
+                                <span class="span_bold">Titulo:</span> 
+                                <span class="span_texto">xxxxxxxxxxxxxxx</span>
+                                <span class="span_bold">Descricao:</span>
+                                <span class="span_texto">xxxxxxxxx</span>
+                                <span class="span_bold">Data início:</span>
+                                <span class="span_texto">xxxxxxxxxxxxxxx</span>
+                                <span class="span_bold">Data conclusão:</span>
+                                <span class="span_texto">xxxxxxxxxx</span>
+                            </div>
+                            <div class="div_imagens">
+
+                                <div class="div_imgQuadrado"><img src="img/quadradoVazado.png" alt=""></div>
+
+                            </div>
+
+
+                        </div>
+                        
 
                     </div>
                     <div class="div_AdicionarRequisitos">
-                        <button>Adicionar requisito</button>
+                        <button onclick="abrirAdicaoReq()">Adicionar requisito</button>
                     </div>
 
                 </div>
 
+                
+                
                 <div class="div_QuartaParte" style="display: none;">
                     <div class="linhaQP_1">
                         <div class="div_img3"><img src="img/arrows-keyboard-return_98211.png" alt=""></div>
@@ -191,8 +213,22 @@
             </div>
 
 
+            <div class="div_TerceiraParteB" id="div_TerceiraParteB" style="display: none;">
+                               
+                <div class="div_textArea2">
+                    <div id="div_img_textArea"><img id="img_textArea"
+                            src="img/cancel_close_delete_exit_logout_remove_x_icon_123217.png" alt=""
+                            onclick="fecharPost()"></div>
+                    <input placeholder="Título do requisito..." type="text"
+                        class="input_indicacao" id="inp_tituloRequisito">
+                    <textarea name="descricao" id="textarea_descricao" maxlength="150"
+                        placeholder="Descrição do requisito..."></textarea>
+                    <img src="img/send_120237.png" alt="" onclick="publicar()">
+                </div>
+            
+            </div>
         </div>
-
+        
 
     </main>
 </body>

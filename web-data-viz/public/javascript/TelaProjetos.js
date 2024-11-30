@@ -106,7 +106,9 @@ function adicionarProjeto() {
 
     }
 }
-
+function abrirAdicaoReq(){
+    div_TerceiraParteB.style.display = 'flex';
+}
 
 
 

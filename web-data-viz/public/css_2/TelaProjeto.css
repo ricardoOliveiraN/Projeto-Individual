@@ -253,7 +253,7 @@
 
 /*Segunda Parte B*/
 
-.div_SegundaParteB{
+.div_SegundaParteB {
     width: 86%;
     margin-top: 10px;
     height: 610px;
@@ -266,6 +266,7 @@
     align-content: center;
     align-items: center;
 }
+
 .div_SegundaParteB span {
     margin-left: 8px;
 }
@@ -286,15 +287,16 @@
     align-items: center;
 }
 
-.linhaTP_1{
+.linhaTP_1 {
     display: flex;
 }
 
-.div_img2{
+.div_img2 {
     top: 25px;
     left: 417px;
     position: fixed;
 }
+
 .div_img2 img {
     width: 41px;
     height: 40px;
@@ -322,8 +324,13 @@
     height: 65%;
     overflow-y: scroll;
     box-shadow: 4px 7px 13px #000000b8;
-    background-color:  #00008073 ;
+    background-color: #00008073;
     border-radius: 8px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
 }
 
 .div_AdicionarRequisitos {
@@ -346,9 +353,149 @@
     font-size: 14px;
 }
 
+.div_requisitos {
+    display: flex;
+    width: 80%;
+    height: auto;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #8000204d;
+    border-radius: 8px;
+    box-shadow: 4px 7px 13px #000000b8;
+}
+
+.div_requisitos .div_textoReq {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_requisitos .div_imagens {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_imgQuadrado img {
+    width: 41px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.div_requisitos .span_bold {
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.div_requisitos .span_texto {
+    color: #ffffffbd;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+
+/*Terceira Parte B*/
+
+.div_TerceiraParteB {
+    padding: 0px;
+    /* border: 2px solid black; */
+    width: 99vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.555);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_TerceiraParteB textarea {
+    padding: 5px;
+    resize: none;
+    min-height: 46%;
+    max-height: 60%;
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 5px;
+    font-family: "Source Code Pro", monospace;
+}
+
+.div_TerceiraParteB input {
+    padding: 5px;
+    resize: none;
+    min-height: 9%;
+    max-height: 15%;
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 5px;
+    border: 0.5px solid gray;
+    font-family: "Source Code Pro", monospace;
+}
+
+.div_textArea2 {
+    padding: 20px;
+    width: 58%;
+    height: 60%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    border-radius: 5px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+}
+.div_textArea2 img {
+    object-fit: cover;
+    height: 50px;
+    cursor: pointer;
+    margin-top: 15px;
+    
+}
+#div_img_textArea {
+    margin-left: -19px;
+    margin-top: -30px;
+    display: flex;
+    align-self: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+}
+#img_textArea {
+    object-fit: cover;
+    height: 26px;
+    cursor: pointer;
+    margin-top: -33px;
+}
+.input_indicacao {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.div_TerceiraParteB .div_textArea
 /*QUARTA PARTE - GRÁFICOS*/
 
-.div_QuartaParte{
+.div_QuartaParte {
     width: 86%;
     margin-top: 10px;
     height: 610px;
@@ -361,10 +508,12 @@
     align-content: center;
     align-items: center;
 }
-.linhaQP_1{
+
+.linhaQP_1 {
     display: flex;
 }
-.titulo2{
+
+.titulo2 {
     display: flex;
     width: 248px;
     height: 53px;
@@ -378,11 +527,13 @@
     align-content: center;
     box-shadow: 4px 7px 13px #000000b8;
 }
-.div_img3{
+
+.div_img3 {
     top: 25px;
     left: 417px;
     position: fixed;
 }
+
 .div_img3 img {
     width: 41px;
     height: 40px;
