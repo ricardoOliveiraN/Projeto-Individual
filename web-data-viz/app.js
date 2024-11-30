@@ -22,6 +22,8 @@ var indicacaoRouter = require("./src/routes/indicacao");
 var aquariosRouter = require("./src/routes/aquarios");
 var quizRouter = require("./src/routes/quiz");
 var comentariosRouter = require("./src/routes/comentarios");
+var comentariosRouter = require("./src/routes/comentarios");
+var projetosRouter = require("./src/routes/projetos");
 
 // var loginUsuarioRouter = require("./src/routes/loginUser");
 
@@ -38,6 +40,7 @@ app.use("/indicacao", indicacaoRouter);
 app.use("/aquarios", aquariosRouter);
 app.use("/quiz", quizRouter);
 app.use("/comentarios", comentariosRouter);
+app.use("/projetos", projetosRouter);
 // app.use("/login", loginUsuarioRouter);
 
 app.listen(PORTA_APP, function () {

@@ -251,6 +251,25 @@
     font-size: 14px;
 }
 
+/*Segunda Parte B*/
+
+.div_SegundaParteB{
+    width: 86%;
+    margin-top: 10px;
+    height: 610px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    background-color: #8000204d;
+    box-shadow: 4px 7px 13px #000000b8;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+.div_SegundaParteB span {
+    margin-left: 8px;
+}
+
 /*Terceira Parte - Adição de requisitos*/
 
 .div_TerceiraParte {

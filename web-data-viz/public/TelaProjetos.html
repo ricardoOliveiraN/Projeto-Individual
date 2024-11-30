@@ -54,7 +54,7 @@
             </div>
             <div class="div_centroConteudo" id="div_ContemTudo">
 
-                <div class="div_PrimeiraParte" style="display:none">
+                <div class="div_PrimeiraParte" id="div_PrimeiraParte" style="display: none;">
                     <div class="titulo_Projetos">
                         <h1>PROJETOS</h1>
                         <h5>(0/3)</h5>
@@ -72,7 +72,7 @@
                                 <h4>Data início:</h4><span>xxxx</span>
                             </div>
                         </div>
-                        <div class="div_img"><img src="img/plus_icon_227338.png"></div>
+                        <div class="div_img"><img src="img/plus_icon_227338.png" onclick="proximaTela('1')"></div>
                     </div>
                     <div class="div_projeto2">
                         <div class="div_textoP">
@@ -86,7 +86,7 @@
                                 <h4>Data início:</h4><span>xxxx</span>
                             </div>
                         </div>
-                        <div class="div_img"><img src="img/plus_icon_227338.png"></div>
+                        <div class="div_img"><img src="img/plus_icon_227338.png" onclick="proximaTela('2')"></div>
                     </div>
                     <div class="div_projeto3">
                         <div class="div_textoP">
@@ -100,37 +100,66 @@
                                 <h4>Data início:</h4><span>xxxx</span>
                             </div>
                         </div>
-                        <div class="div_img"><img src="img/plus_icon_227338.png"></div>
+                        <div class="div_img"><img src="img/plus_icon_227338.png" onclick="proximaTela('3')"></div>
                     </div>
                 </div>
 
-                <div class="div_SegundaParte" style="display: none;">
+                <div class="div_SegundaParte" id="div_SegundaParte" style="display: none;">
 
                     <div class="linhaSP_1">
-                        <h3>Nome do Projeto:</h3><span><input type="text" placeholder="Nome do projeto..."></span>
+
+                        <div class="div_img2"><img src="img/arrows-keyboard-return_98211.png" alt=""></div>
+                        <div class="linhaSP_1">
+                        <h3>Nome do Projeto:</h3><span><input type="text" placeholder="Nome do projeto..." id="inp_nomeProjeto"></span></div>
                     </div>
                     <div class="linhaSP_2">
-                        <h3>Público alvo:</h3><span><input type="text" placeholder="Público alvo..."></span>
+                        <h3>Público alvo:</h3><span><input type="text" placeholder="Público alvo..." id="inp_publicoAlvo"></span>
                     </div>
                     <div class="linhaSP_4">
-                        <h3>Solução:</h3><span><textarea name="" id=""
+                        <h3>Solução:</h3><span><textarea name="" id="inp_solucao"
                                 placeholder="Solução encontrada..."></textarea></span>
                     </div>
+
+                    
                     <div class="linhaSP_5">
-                        <h3>Status:</h3><span><select name="" id="">
+                        <h3>Status:</h3><span><select name="" id="inp_status">
                                 <option value="">Em andamento</option>
                                 <option value="">Standby</option>
                                 <option value="">Inativo</option>
-                            </select></textarea></span>
+                            </select></span>
                     </div>
                     <div class="linhaSP_6">
-                        <button>Adicionar Projeto</button>
-                        <button>Ver gráficos</button>
+                        <button onclick="adicionarProjeto()">Adicionar Projeto</button>
                     </div>
 
                 </div>
 
-                <div class="div_TerceiraParte" style="display: none;" >
+                <div class="div_SegundaParteB" id="div_SegundaParteB" style="display: none;">
+
+                    <div class="linhaSP_1">
+                        <div class="div_img2"><img src="img/arrows-keyboard-return_98211.png" alt=""></div>
+                        <div class="linhaSP_1">
+                            <h3>Nome do Projeto:</h3><span id="span_1">xxxxxx</span>
+                        </div>
+                    </div>
+                    <div class="linhaSP_2">
+                        <h3>Público alvo:</h3><span id="span_2">xxxxxxx</span>
+                    </div>
+                    <div class="linhaSP_4">
+                        <h3>Solução:</h3><span id="span_3">xxxxx</textarea></span>
+                    </div>
+                    <div class="linhaSP_5">
+                        <h3>Status:</h3><span id="span_4">xxxxxx</span>
+                    </div>
+                    <div class="linhaSP_6">
+                        <button>Adicionar Requisitos</button>
+                        <button>Ver Gráficos</button>
+                        <button>Atualizar</button>
+                    </div>
+
+                </div>
+
+                <div class="div_TerceiraParte" id="div_TerceiraParte">
 
                     <div class="linhaTP_1">
                         <div class="div_img2"><img src="img/arrows-keyboard-return_98211.png" alt=""></div>
@@ -149,7 +178,7 @@
 
                 </div>
 
-                <div class="div_QuartaParte">
+                <div class="div_QuartaParte" style="display: none;">
                     <div class="linhaQP_1">
                         <div class="div_img3"><img src="img/arrows-keyboard-return_98211.png" alt=""></div>
                         <div class="titulo2">
@@ -169,7 +198,7 @@
 </body>
 
 </html>
-<script src="">
+<script src="javascript/TelaProjetos.js">
 
 
 </script>
