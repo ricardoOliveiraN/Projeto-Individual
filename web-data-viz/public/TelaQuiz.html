@@ -27,19 +27,19 @@
                 <div class="div_botoesInterativos">
                     <ul>
                         <div>
-                            <li><a href="TelaInicial.html" onclick = "voltarQuiz()">Página Inicial</a></li>
+                            <li><a href="TelaInicial.html" onclick="voltarQuiz()">Página Inicial</a></li>
                         </div>
                         <div>
-                            <li><a href="../Serviços/TelaServicos.html" onclick = "voltarQuiz()">Indicações</a></li>
+                            <li><a href="../Serviços/TelaServicos.html" onclick="voltarQuiz()">Indicações</a></li>
                         </div>
                         <div>
-                            <li><a href="../Simulador/Simulador.html" onclick = "voltarQuiz()">Projetos</a></li>
+                            <li><a href="../Simulador/Simulador.html" onclick="voltarQuiz()">Projetos</a></li>
                         </div>
                         <div>
                             <li><a href="TelaQuiz.html" onclick="voltarQuiz()">Quiz</a></li>
                         </div>
                         <div>
-                            <li><a href="../Contato/TelaFaleConosco.Html" onclick = "voltarQuiz()">Perfil</a></li>
+                            <li><a href="../Contato/TelaFaleConosco.Html" onclick="voltarQuiz()">Perfil</a></li>
                         </div>
                     </ul>
                 </div>
@@ -54,13 +54,17 @@
                     </div>
                     <div class="div_Paragrafo">
                         <p>
-                            Você ja pensou em investir na bolsa de valores, mas ficou com receio por não saber muito sobre e não enteder o melhor para você?
+                            Você ja pensou em investir na bolsa de valores, mas ficou com receio por não saber muito
+                            sobre e não enteder o melhor para você?
                         </p>
                         <p>
-                            Esse quiz é perfeito para você resolver essas dúvidas, aqui você irá responder questões que irão lhe ajudar a entender qual é o tipo de investidor que mais se adequa à suas características.
+                            Esse quiz é perfeito para você resolver essas dúvidas, aqui você irá responder questões que
+                            irão lhe ajudar a entender qual é o tipo de investidor que mais se adequa à suas
+                            características.
                         </p>
                         <p>
-                            Ao final do questionário, haverá informações gráficas que ajudarão você a entender mais sobre si mesmo e o que se adequa com suas características.
+                            Ao final do questionário, haverá informações gráficas que ajudarão você a entender mais
+                            sobre si mesmo e o que se adequa com suas características.
                         </p>
                         <p>
                             Vale ressaltar que esse quiz pode ser refeito quantas vezes você desejar.
@@ -72,24 +76,29 @@
                     </div>
 
                 </div>
-                <div class="div_Quiz" id="div_Quizz2">
+                <div class="div_Quiz" id="div_Quizz2" >
 
                     <div class="div_Titulo">
                         <h1>Conhecimentos Gerais</h1>
                     </div>
                     <div class="div_Paragrafo">
-                        <p>Este quiz é para você que sonha em ser um empreendedor mas não possui a confiança em seu próprio conhecimento para realizar seus sonhos.</p>
-                        <p>Neste quiz você se deparará com questões de diversos assuntos relacionados ao empreendedorismo e, assim, você colocará a prova todo seu conhecimento adquirido desde que você começou a sonhar.</p>
-                        <p>Ao final, para lhe auxiliar em tomadas de decisões (estudar mais ou não), você irá ter em sua posse gráficos abordando a quantidade de acertos e erros de acordo com as questões respondidas.</p>
-                        <p>Vale ressaltar que esse quiz pode ser refeito quantas vezes você desejar.</p>
+                        <p>Este quiz é para você que sonha em ser um empreendedor mas não possui a confiança em seu
+                            próprio conhecimento para realizar seus sonhos.</p>
+                        <p>Neste quiz você se deparará com questões de diversos assuntos relacionados ao
+                            empreendedorismo e, assim, você colocará a prova todo seu conhecimento adquirido desde que
+                            você começou a sonhar.</p>
+                        <p>Ao final, para lhe auxiliar em tomadas de decisões (estudar mais ou não), você irá ter em sua
+                            posse gráficos abordando a quantidade de acertos e erros de acordo com as questões
+                            respondidas.</p>
+                       
                     </div>
                     <div class="div_Botao">
-                        <button>Começar agora...</button>
+                        <button onclick="chamarQuizDois()">Começar agora...</button>
                     </div>
 
                 </div>
                 <div class="div_FundoPerguntasQuiz" id="div_Funndo" style="display: none;">
-                   
+
 
                 </div>
 
@@ -99,14 +108,52 @@
                     </div>
                     <div class="div_KpiUm">
                         <div class="div_tipo">Suas respostas:</div>
-                        <div class="div_tipo">Conservador<div class="div_quadradoPorcent" id="div_qC"></div></div>
-                        <div class="div_tipo">Moderado<div class="div_quadradoPorcent" id="div_qM"></div></div>
-                        <div class="div_tipo">Agressivo<div class="div_quadradoPorcent" id="div_qA"></div></div>
+                        <div class="div_tipo">Conservador<div class="div_quadradoPorcent" id="div_qC"></div>
+                        </div>
+                        <div class="div_tipo">Moderado<div class="div_quadradoPorcent" id="div_qM"></div>
+                        </div>
+                        <div class="div_tipo">Agressivo<div class="div_quadradoPorcent" id="div_qA"></div>
+                        </div>
                     </div>
                     <div class="div_GraficoUm">
                         <canvas id="myChart" style="position: relative; height: 100%; width: 80%;"></canvas>
                     </div>
                 </div>
+
+
+                <div class="div_DashBoard" id="div_FundoDash2" style="display: none;">
+                    <div class="div_Dash2">
+                        <div class="div_Titulo8">
+                            <div class="div_Botao3">
+                                <button onclick="voltarQuizDois()">Voltar</button>
+                            </div>
+                            <div class="div_Titulo5">
+                                <h1>Gráficos</h1>
+                            </div>
+                        </div>
+                        <div class="div_contemGrafico">
+
+                            <div class="kpi">
+
+                                <span id="kpi_titulo">Total Respostas:</span>
+                                <span id="kpi_requisitos"></span>
+
+                            </div>
+                            <div class="grafico_rosca">
+
+                                <canvas id="myChartD" style="position: relative; height: 100%; width:100%; margin: 24px 0px;"></canvas>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="div_GraficoDois">
+                        <canvas id="myChartE" style="position: relative; height: 100%; width:100%; margin: 24px 0px;"></canvas>
+                    </div>
+                </div>
+
             </div>
 
         </div>

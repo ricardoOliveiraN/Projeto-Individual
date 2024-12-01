@@ -8,6 +8,10 @@ router.post("/quizum", function (req, res) {
     quizController.cadastrarUm(req, res);
 })
 
+router.post("/quizdois", function (req, res) {
+    quizController.cadastrarDois(req, res);
+})
+
 router.get("/dadosUm/:fkUser", function (req, res) {
     quizController.buscarDadosUm(req, res);
 });
@@ -15,8 +19,20 @@ router.get("/dadosUm/:fkUser", function (req, res) {
 router.delete("/delquiz", function (req, res) {
   quizController.delquiz(req, res);
 })
+
+router.delete("/delquizDois", function (req, res) {
+  quizController.delquizDois(req, res);
+})
+
 router.get("/listar", function (req, res) {
   quizController.listar(req, res);
+});
+
+router.get("/KPI/:fkUser", function (req, res) {
+  quizController.KPI(req, res);
+});
+router.get("/dashBordDois", function (req, res) {
+  quizController.dashBordDois(req, res);
 });
 
 router.post("/inserUser", function (req, res) {
