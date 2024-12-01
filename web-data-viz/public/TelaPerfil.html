@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css_2/TelaPerfil.css">
+    <link rel="stylesheet" href="css_2/MenusLaterais.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+    <script src="js/sessao.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<!-- <body onload="buscarPost(); validarSessao(); buscarComentarios()"> -->
+
+<body onload="validarSessao();dadosPerfil()">
+    <main>
+
+        <div class="div_conteiner">
+
+            <div class="div_menuLateralEsquerda">
+                <div class="div_logo"><img src="img/LogoLateral.png" alt=""></div>
+                <div class="div_dadosUser"></div>
+                <div class="div_botoesInterativos">
+                    <ul>
+                        <div>
+                            <li><a href="TelaInicial.html">Página Inicial</a></li>
+                        </div>
+                        <div>
+                            <li><a href="../Serviços/TelaServicos.html">Indicações</a></li>
+                        </div>
+                        <div>
+                            <li><a href="../Simulador/Simulador.html">Projetos</a></li>
+                        </div>
+                        <div>
+                            <li><a href="TelaQuiz.html">Quiz</a></li>
+                        </div>
+                        <div>
+                            <li><a href="../Contato/TelaFaleConosco.Html">Perfil</a></li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="div_botaoSair"><button>Sair</button></div>
+            </div>
+            <div class="div_centroConteudo" id="div_ContemTudo">
+
+                <div class="div_QuartaParte">
+                    <div class="linhaQP_1">                       
+                        <div class="titulo2">
+                            <h1>MEU PERFIL</h1>
+                        </div>
+                    </div>
+                    
+                    <div class="linhaQP_2">                       
+                        <div class="Dados">
+                            <div class="caixa_titulo"><span>Nome:</span></div>
+                            <div class="caixa_resposta"><span id="span_nome"></span></div>
+                        </div>
+                        <div class="Dados">
+                            <div class="caixa_titulo"><span>Número Celular:</span></div>
+                            <div class="caixa_resposta"><span id="span_numero"></span></div>
+                        </div>
+                    </div>
+
+                    <div class="linhaQP_3">                       
+                        <div class="Dados">
+                            <div class="caixa_titulo"><span>Email:</span></div>
+                            <div class="caixa_resposta"><span id="span_email"></span></div>
+                        </div>
+                        <div class="Dados">
+                            <div class="caixa_titulo"><span>Perfil Investidor:</span></div>
+                            <div class="caixa_resposta"><span id="span_perfil"></span></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+    </main>
+</body>
+
+</html>
+<script src="javascript/TelaPerfil.js">
+
+
+</script>

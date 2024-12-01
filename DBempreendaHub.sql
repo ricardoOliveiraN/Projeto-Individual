@@ -222,3 +222,49 @@ LEFT JOIN Usuarios as u
 LEFT JOIN LikesIndicacao as l ON l.fkPost = i.idPost
 GROUP BY i.descricao, u.nomeCompleto, i.dataPostagem, i.idPost
 ORDER BY qtdLikesIndicacao DESC LIMIT 3;
+
+
+-- Projetos
+
+CREATE TABLE Projetos (
+	idProjetos INT,
+    fkUser INT,
+    CONSTRAINT fkProjetoUser FOREIGN KEY (fkUser) REFERENCES Usuarios(idUsuario),
+    PRIMARY KEY (idProjetos, fkUser),
+    nomeProjeto VARCHAR(45),
+    publicoAlvo VARCHAR(45),
+    solucao VARCHAR(200),
+    statusProjeto VARCHAR(45),
+    dataProjeto DATETIME DEFAULT CURRENT_TIMESTAMP);
+  
+select * from Projetos;
+    
+INSERT INTO Projetos (idProjetos, fkUser, nomeProjeto, solucao, statusProjeto) VALUES 
+	(1, 1, 'testando', 'testando mais do que necessário para ver se da certo', 'standby');
+
+
+
+CREATE TABLE Requisitos (
+	idRequisitos INT AUTO_INCREMENT,
+    fkProjeto INT,
+    CONSTRAINT fkProjetoRequisitos FOREIGN KEY (fkProjeto) REFERENCES Projetos(idProjetos),
+    fkUser INT,
+    CONSTRAINT fkUserRequisitos FOREIGN KEY (fkUser) REFERENCES Usuarios(idUsuario),
+    PRIMARY KEY (idRequisitos, fkProjeto, fkUser),
+    nomeRequisito VARCHAR(45),
+    descricaoRequisito VARCHAR(150),
+    dataInicio DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dataFim DATETIME);
+
+SELECT COUNT(*) FROM Requisitos WHERE fkProjeto = 1 and fkUser = 1;
+
+SELECT  COUNT(CASE WHEN dataFim IS NULL THEN 1 END) AS naoConcluido, COUNT(CASE WHEN dataFim IS NOT NULL THEN 1 END) AS Concluido FROM Requisitos WHERE fkProjeto = 1 AND fkUser = 1;
+
+SELECT COUNT(*) AS Concluido, dataFim AS dataConclusao FROM Requisitos WHERE fkUser = 1 AND fkProjeto = 1 AND dataFim IS NOT NULL GROUP BY dataFim;
+
+
+SELECT  idRequisitos, nomeRequisito, descricaoRequisito, dataInicio, dataFim FROM Requisitos WHERE fkProjeto = 2 and fkUser = 1;
+select * from requisitos;
+DROP TABLE Projetos;
+
+DROP TABLE Requisitos;

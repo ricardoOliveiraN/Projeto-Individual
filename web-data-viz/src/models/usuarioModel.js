@@ -22,7 +22,17 @@ function cadastrar(nome, email, senha, celular) {
     return database.executar(instrucaoSql);
 }
 
+function dadosPerfil(idUser) {
+    
+    var instrucaoSql = `
+        SELECT nomeCompleto, numeroCelular, email, tipoPerfil FROM Usuarios WHERE idUsuario = ${idUser};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    dadosPerfil
 };

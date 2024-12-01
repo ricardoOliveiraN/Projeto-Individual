@@ -1,0 +1,162 @@
+.div_centroConteudo {
+
+    width: 77%;
+    margin-left: 23%;
+    margin-right: 0%;
+    height: 633px;
+    background-color: #c0c0c0b5;
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
+}
+
+.div_QuartaParte {
+    width: 86%;
+    margin-top: 10px;
+    height: 610px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    background-color: #8000204d;
+    box-shadow: 4px 7px 13px #000000b8;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.linhaQP_1 {
+    display: flex;
+    width: auto;
+    height: auto;
+}
+
+.titulo2 {
+    display: flex;
+    width: 248px;
+    height: 53px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background: black;
+    color: white;
+    border-radius: 14px;
+    margin-top: 13px;
+    align-content: center;
+    box-shadow: 4px 7px 13px #000000b8;
+}
+
+.linhaQP_2 {
+    display: flex;
+    width: 80%;
+    height: 40%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+.linhaQP_2 .Dados {
+    width: 50%;
+    height: 80%;
+    background-color: #00008073;
+    border-radius: 8px;
+    box-shadow: 4px 7px 13px #000000b8;
+}
+
+.linhaQP_2 .Dados .caixa_titulo {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    word-break: break-word;
+}
+
+.linhaQP_2 .Dados .caixa_resposta {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    align-items: flex-start;
+    justify-content: center;
+    word-break: break-word;
+}
+
+.linhaQP_2 .Dados .caixa_titulo span {
+
+    color: black;
+    font-weight: bold;
+    font-size: 26px;
+
+}
+
+.linhaQP_2 .Dados .caixa_resposta span {
+
+    color: #ffffffbd;
+    font-weight: bold;
+    font-size: 23px;
+
+}
+
+
+
+
+
+.linhaQP_3 {
+    display: flex;
+    width: 80%;
+    height: 40%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+.linhaQP_3 .Dados {
+    width: 50%;
+    height: 80%;
+    background-color: #00008073;
+    border-radius: 8px;
+    box-shadow: 4px 7px 13px #000000b8;
+}
+
+.linhaQP_3 .Dados .caixa_titulo {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    word-break: break-word;
+}
+
+.linhaQP_3 .Dados .caixa_resposta {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    align-items: flex-start;
+    justify-content: center;
+    word-break: break-word;
+}
+
+.linhaQP_3 .Dados .caixa_titulo span {
+
+    color: black;
+    font-weight: bold;
+    font-size: 26px;
+
+}
+
+.linhaQP_3 .Dados .caixa_resposta span {
+
+    color: #ffffffbd;
+    font-weight: bold;
+    font-size: 23px;
+
+}
+
+
+
