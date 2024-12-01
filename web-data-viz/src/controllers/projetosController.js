@@ -194,6 +194,27 @@ function graficoUm(req, res) {
             res.status(500).json(erro.sqlMessage);
         });
 }
+function graficoDois(req, res) {
+    console.log(`Buscando os votos...`);
+
+    var fkProjeto = req.params.fkProjeto
+    var fkUser = req.params.fkUser;
+
+    projetosModel.graficoDois(fkProjeto, fkUser)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                console.log(resultado);
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar os votos.", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
 
 
 module.exports = {
@@ -204,5 +225,6 @@ module.exports = {
     conclusaoReq,
     buscarDadosInicio,
     dadosKPI,
-    graficoUm
+    graficoUm,
+    graficoDois
 };

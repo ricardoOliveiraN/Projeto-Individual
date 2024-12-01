@@ -19,11 +19,12 @@
         rel="stylesheet">
 
     <script src="js/sessao.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <!-- <body onload="buscarPost(); validarSessao(); buscarComentarios()"> -->
 
-<body onload="validarSessao(); dadosKPI()">
+<body onload="validarSessao(); dadosKPI(); graficoUm(); graficoDois()">
     <main>
 
         <div class="div_conteiner">
@@ -65,13 +66,17 @@
                     <div class="linhaQP_2">
                         <div class="div_ParteUm">
                             <span id="kpi_titulo">TOTAL DE REQUISITOS:</span>
-                            <span id="kpi_requisitos">X</span>
+                            <span id="kpi_requisitos"></span>
                         </div>
-                        <div class="div_ParteDois"></div>
+                        <div class="div_ParteDois">
+                            <canvas id="myChartB" style="position: relative; height: 100%; width:100%; margin: 24px 0px;"></canvas>
+                        </div>
                     </div>
                     <div class="linhaQP_3">
                        
-                        <div class="div_ParteQuatro"></div>
+                        <div class="div_ParteQuatro">
+                            <canvas id="myChartC" style="position: relative; height: 100%; width:100%; margin: 24px 0px;"></canvas>
+                        </div>
                     </div>
 
                 </div>

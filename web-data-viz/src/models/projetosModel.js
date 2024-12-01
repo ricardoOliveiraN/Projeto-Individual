@@ -57,4 +57,10 @@ function graficoUm(fkProjeto, fkUser) {
   return database.executar(instrucaoSql);
 }
 
-module.exports = {buscarProjeto, publicar, publicarRequisito, buscarRequisito, conclusaoReq, buscarDadosInicio, dadosKPI, graficoUm};
+function graficoDois(fkProjeto, fkUser) {
+  var instrucaoSql = `SELECT COUNT(*) AS Concluido, dataFim AS dataConclusao FROM Requisitos WHERE fkUser = ${fkUser} AND fkProjeto = ${fkProjeto} AND dataFim IS NOT NULL GROUP BY dataFim;`;
+
+  return database.executar(instrucaoSql);
+}
+
+module.exports = {buscarProjeto, publicar, publicarRequisito, buscarRequisito, conclusaoReq, buscarDadosInicio, dadosKPI, graficoUm, graficoDois};

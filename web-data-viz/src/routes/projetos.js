@@ -29,5 +29,8 @@ router.get("/dadosKPI/:fkProjeto/:fkUser", function (req, res) {
 router.get("/graficoUm/:fkProjeto/:fkUser", function (req, res) {
     projetosController.graficoUm(req, res);
 });
+router.get("/graficoDois/:fkProjeto/:fkUser", function (req, res) {
+    projetosController.graficoDois(req, res);
+});
 
 module.exports = router;

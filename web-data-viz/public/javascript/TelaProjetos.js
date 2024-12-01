@@ -28,7 +28,7 @@ function buscarDadosInicio() {
                     for (let i = 0; i < resposta.length; i++) {
 
                         var publicacao = resposta[i].Inicio;
-                        
+
                         var dataInicioCompleta = new Date(publicacao);
                         var dataInicioSimples = dataInicioCompleta.toLocaleDateString("pt-BR")
 
@@ -360,11 +360,11 @@ function voltar() {
     window.location = 'TelaProjetos.html';
 }
 
-function telaReq(){
+function telaReq() {
     window.location = 'TelaProjetoBack.html';
 }
 
-function telaGraficos(){
+function telaGraficos() {
     window.location = 'TelaProjetoGraf.html';
 }
 
@@ -382,7 +382,7 @@ function telaGraficos(){
 
 */
 
-function dadosKPI(){
+function dadosKPI() {
 
     var fkUser = sessionStorage.ID_USUARIO;
     var fkProjeto = sessionStorage.ID_PROJETO;
@@ -391,10 +391,39 @@ function dadosKPI(){
         if (resposta.ok) {
 
             resposta.json().then(function (resposta) {
-            
+
 
                 kpi_requisitos.innerHTML = resposta[0].totalReq;
-            
+
+
+            });
+        } else {
+            throw ('Houve um erro na API!');
+        }
+    }).catch(function (resposta) {
+        console.error(resposta);
+
+    });
+
+}
+
+var dataBB = [];
+
+function graficoUm() {
+
+    var fkUser = sessionStorage.ID_USUARIO;
+    var fkProjeto = sessionStorage.ID_PROJETO;
+
+    fetch(`/projetos/graficoUm/${fkProjeto}/${fkUser}`).then(function (resposta) {
+        if (resposta.ok) {
+
+            resposta.json().then(function (resposta) {
+
+                dataBB.push(resposta[0].Concluido);
+                dataBB.push(resposta[0].naoConcluido);
+
+
+                plotarGraficoUm();
 
             });
         } else {
@@ -408,20 +437,90 @@ function dadosKPI(){
 }
 
 
-function graficoUm(){
-    
+function plotarGraficoUm() {
+
+
+    const labelsB = [
+        'Concluído',
+        'Não Concluído',
+    ];
+
+
+
+    const dataB = {
+        labels: labelsB,
+        datasets: [{
+            label: 'Requisitos',
+            backgroundColor: [
+                'rgb(95, 155, 99)',
+                'rgb(179, 53, 53)',
+            ],
+            borderColor: [
+                'rgb(0, 0, 0, 0.2)',
+                'rgb(0, 0, 0, 0.2)',
+            ],
+            data: dataBB
+        }]
+
+    };
+
+
+
+    const configB = {
+        type: 'doughnut',
+        data: dataB,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Requísitos Concluído x Não Concluídos',
+                    color: '#000000',
+                    font: {
+                        size: 16,
+                    }
+                },
+                legend: {
+                    position: 'bottom',
+
+                    labels: {
+                        boxWidth: 20,
+                        color: '#000'
+                    }
+                }
+            }
+        }
+    }
+
+    const myChart2 = new Chart(
+        document.getElementById('myChartB'),
+        configB
+    )
+
+}
+
+function graficoDois() {
+
     var fkUser = sessionStorage.ID_USUARIO;
     var fkProjeto = sessionStorage.ID_PROJETO;
 
-    fetch(`/projetos/graficoUm/${fkProjeto}/${fkUser}`).then(function (resposta) {
+    fetch(`/projetos/graficoDois/${fkProjeto}/${fkUser}`).then(function (resposta) {
         if (resposta.ok) {
 
             resposta.json().then(function (resposta) {
-            
 
-                a.innerHTML = resposta[0].naoConcluido;
-                a.innerHTML = resposta[0].Concluido;
-            
+                for (let index = 0; index < resposta.length; index++) {
+                    var public = resposta[index];
+
+                    var dataCompleta = new Date(public.dataConclusao);
+                    var dataSimples = dataCompleta.toLocaleDateString("pt-BR")
+
+                    dataCC.push(public.Concluido);
+                    labelCC.push(dataSimples);
+
+
+                }
+
+                plotarGraficoDois();
 
             });
         } else {
@@ -431,5 +530,73 @@ function graficoUm(){
         console.error(resposta);
 
     });
+
+}
+
+var labelCC = [];
+var dataCC = [];
+
+function plotarGraficoDois() {
+    console.log(labelCC)
+    console.log(dataCC)
+    const dataB = {
+        labels: labelCC,
+        datasets: [{
+            label: 'Data Conclusão',
+            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            borderColor: 'rgb(255, 0, 0)',
+            borderWidth: 2,
+            data: dataCC
+        }
+        ]
+    };
+
+
+    const configB = {
+        type: 'line',
+        data: dataB,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Requisitos Concluídos x Data de Conclusão',
+                    color: 'black', 
+                    font: {
+                        size: 16 
+                    }
+                },
+                legend: {
+                    labels: {
+                        color: 'black' 
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true, 
+                    grid: {
+                        color: 'black'
+                    },
+                    ticks: {
+                        color: 'black' 
+                    }
+                },
+                y: {
+                    beginAtZero: true, 
+                    grid: {
+                        color: 'black'
+                    },
+                    ticks: {
+                        color: 'black'
+                    }
+                }
+            }
+        }
+    };
+
+    const myChart3 = new Chart(
+        document.getElementById('myChartC'),
+        configB
+    )
 
 }
