@@ -23,7 +23,7 @@
 
 <!-- <body onload="buscarPost(); validarSessao(); buscarComentarios()"> -->
 
-<body>
+<body onload="validarSessao(); buscarDadosInicio()">
     <main>
 
         <div class="div_conteiner">
@@ -54,22 +54,22 @@
             </div>
             <div class="div_centroConteudo" id="div_ContemTudo">
 
-                <div class="div_PrimeiraParte" id="div_PrimeiraParte" style="display: none;">
+                <div class="div_PrimeiraParte" id="div_PrimeiraParte">
                     <div class="titulo_Projetos">
                         <h1>PROJETOS</h1>
-                        <h5>(0/3)</h5>
+                        <h5 id="number_titulo">(0/3)</h5>
                     </div>
 
                     <div class="div_projeto1">
                         <div class="div_textoP">
                             <div class="linha1">
-                                <h4>Nome do Projeto:</h4><span>xxxx</span>
+                                <h4>Nome do Projeto:</h4><span id="span1_1">xxxx</span>
                             </div>
                             <div class="linha2">
-                                <h4>Status:</h4><span>xxxx</span>
+                                <h4>Status:</h4><span id="span1_2">xxxx</span>
                             </div>
                             <div class="linha3">
-                                <h4>Data início:</h4><span>xxxx</span>
+                                <h4>Data início:</h4><span id="span1_3">xxxx</span>
                             </div>
                         </div>
                         <div class="div_img"><img src="img/plus_icon_227338.png" onclick="proximaTela('1')"></div>
@@ -77,13 +77,13 @@
                     <div class="div_projeto2">
                         <div class="div_textoP">
                             <div class="linha1">
-                                <h4>Nome do Projeto:</h4><span>xxxx</span>
+                                <h4>Nome do Projeto:</h4><span id="span2_1">xxxx</span>
                             </div>
                             <div class="linha2">
-                                <h4>Status:</h4><span>xxxx</span>
+                                <h4>Status:</h4><span id="span2_2">xxxx</span>
                             </div>
                             <div class="linha3">
-                                <h4>Data início:</h4><span>xxxx</span>
+                                <h4>Data início:</h4><span id="span2_3">xxxx</span>
                             </div>
                         </div>
                         <div class="div_img"><img src="img/plus_icon_227338.png" onclick="proximaTela('2')"></div>
@@ -91,13 +91,13 @@
                     <div class="div_projeto3">
                         <div class="div_textoP">
                             <div class="linha1">
-                                <h4>Nome do Projeto:</h4><span>xxxx</span>
+                                <h4>Nome do Projeto:</h4><span id="span3_1">xxxx</span>
                             </div>
                             <div class="linha2">
-                                <h4>Status:</h4><span>xxxx</span>
+                                <h4>Status:</h4><span id="span3_2">xxxx</span>
                             </div>
                             <div class="linha3">
-                                <h4>Data início:</h4><span>xxxx</span>
+                                <h4>Data início:</h4><span id="span3_3">xxxx</span>
                             </div>
                         </div>
                         <div class="div_img"><img src="img/plus_icon_227338.png" onclick="proximaTela('3')"></div>
@@ -108,7 +108,7 @@
 
                     <div class="linhaSP_1">
 
-                        <div class="div_img2"><img src="img/arrows-keyboard-return_98211.png" alt=""></div>
+                        <div class="div_img2"><img src="img/arrows-keyboard-return_98211.png" alt="" onclick="voltar()"></div>
                         <div class="linhaSP_1">
                         <h3>Nome do Projeto:</h3><span><input type="text" placeholder="Nome do projeto..." id="inp_nomeProjeto"></span></div>
                     </div>
@@ -123,9 +123,9 @@
                     
                     <div class="linhaSP_5">
                         <h3>Status:</h3><span><select name="" id="inp_status">
-                                <option value="">Em andamento</option>
-                                <option value="">Standby</option>
-                                <option value="">Inativo</option>
+                                <option value="Em andamento">Em andamento</option>
+                                <option value="Standby">Standby</option>
+                                <option value="Inativo">Inativo</option>
                             </select></span>
                     </div>
                     <div class="linhaSP_6">
@@ -137,7 +137,7 @@
                 <div class="div_SegundaParteB" id="div_SegundaParteB" style="display: none;">
 
                     <div class="linhaSP_1">
-                        <div class="div_img2"><img src="img/arrows-keyboard-return_98211.png" alt=""></div>
+                        <div class="div_img2"><img src="img/arrows-keyboard-return_98211.png" alt="" onclick="voltar()"></div>
                         <div class="linhaSP_1">
                             <h3>Nome do Projeto:</h3><span id="span_1">xxxxxx</span>
                         </div>
@@ -152,57 +152,17 @@
                         <h3>Status:</h3><span id="span_4">xxxxxx</span>
                     </div>
                     <div class="linhaSP_6">
-                        <button>Adicionar Requisitos</button>
-                        <button>Ver Gráficos</button>
+                        <button onclick="telaReq()">Adicionar Requisitos</button>
+                        <button onclick="telaGraficos()">Ver Gráficos</button>
                         <button>Atualizar</button>
                     </div>
 
                 </div>
-
-                <div class="div_TerceiraParte" id="div_TerceiraParte">
-
-                    <div class="linhaTP_1">
-                        <div class="div_img2"><img src="img/arrows-keyboard-return_98211.png" alt=""></div>
-                        <div class="titulo">
-                            <h1>BACKLOG</h1>
-                        </div>
-                    </div>
-                    <div class="div_conterRequisitos">
-
-                        <div class="div_requisitos">
-
-                            <div class="div_textoReq">
-                                <span class="span_bold">Titulo:</span> 
-                                <span class="span_texto">xxxxxxxxxxxxxxx</span>
-                                <span class="span_bold">Descricao:</span>
-                                <span class="span_texto">xxxxxxxxx</span>
-                                <span class="span_bold">Data início:</span>
-                                <span class="span_texto">xxxxxxxxxxxxxxx</span>
-                                <span class="span_bold">Data conclusão:</span>
-                                <span class="span_texto">xxxxxxxxxx</span>
-                            </div>
-                            <div class="div_imagens">
-
-                                <div class="div_imgQuadrado"><img src="img/quadradoVazado.png" alt=""></div>
-
-                            </div>
-
-
-                        </div>
-                        
-
-                    </div>
-                    <div class="div_AdicionarRequisitos">
-                        <button onclick="abrirAdicaoReq()">Adicionar requisito</button>
-                    </div>
-
-                </div>
-
-                
+               
                 
                 <div class="div_QuartaParte" style="display: none;">
                     <div class="linhaQP_1">
-                        <div class="div_img3"><img src="img/arrows-keyboard-return_98211.png" alt=""></div>
+                        <div class="div_img3"><img src="img/arrows-keyboard-return_98211.png" alt="" onclick="voltar()"></div>
                         <div class="titulo2">
                             <h1>GRÁFICOS</h1>
                         </div>
@@ -223,7 +183,7 @@
                         class="input_indicacao" id="inp_tituloRequisito">
                     <textarea name="descricao" id="textarea_descricao" maxlength="150"
                         placeholder="Descrição do requisito..."></textarea>
-                    <img src="img/send_120237.png" alt="" onclick="publicar()">
+                    <img src="img/send_120237.png" alt="" onclick="publicarRequisito()">
                 </div>
             
             </div>

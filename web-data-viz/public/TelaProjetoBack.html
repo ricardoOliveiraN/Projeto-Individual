@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css_2/TelaProjeto.css">
+    <link rel="stylesheet" href="css_2/MenusLaterais.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+
+    <script src="js/sessao.js"></script>
+</head>
+
+<!-- <body onload="buscarPost(); validarSessao(); buscarComentarios()"> -->
+
+<body onload="buscarRequisitos();">
+    <main>
+
+        <div class="div_conteiner">
+
+            <div class="div_menuLateralEsquerda">
+                <div class="div_logo"><img src="img/LogoLateral.png" alt=""></div>
+                <div class="div_dadosUser"></div>
+                <div class="div_botoesInterativos">
+                    <ul>
+                        <div>
+                            <li><a href="TelaInicial.html">Página Inicial</a></li>
+                        </div>
+                        <div>
+                            <li><a href="../Serviços/TelaServicos.html">Indicações</a></li>
+                        </div>
+                        <div>
+                            <li><a href="../Simulador/Simulador.html">Projetos</a></li>
+                        </div>
+                        <div>
+                            <li><a href="TelaQuiz.html">Quiz</a></li>
+                        </div>
+                        <div>
+                            <li><a href="../Contato/TelaFaleConosco.Html">Perfil</a></li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="div_botaoSair"><button>Sair</button></div>
+            </div>
+            <div class="div_centroConteudo" id="div_ContemTudo">
+
+            
+
+                <div class="div_TerceiraParte" id="div_TerceiraParte" >
+
+                    <div class="linhaTP_1">
+                        <div class="div_img2"><img src="img/arrows-keyboard-return_98211.png" alt="" onclick="voltar()"></div>
+                        <div class="titulo">
+                            <h1>BACKLOG</h1>
+                        </div>
+                    </div>
+                    <div class="div_conterRequisitos" id="div_conterRequisitos">
+
+                        
+
+                    </div>
+                    <div class="div_AdicionarRequisitos">
+                        <button onclick="abrirAdicaoReq()">Adicionar requisito</button>
+                    </div>
+
+                </div>
+
+                
+                
+                
+
+            </div>
+
+
+            <div class="div_TerceiraParteB" id="div_TerceiraParteB" style="display: none;">
+                               
+                <div class="div_textArea2">
+                    <div id="div_img_textArea"><img id="img_textArea"
+                            src="img/cancel_close_delete_exit_logout_remove_x_icon_123217.png" alt=""
+                            onclick="fecharPost()"></div>
+                    <input placeholder="Título do requisito..." type="text"
+                        class="input_indicacao" id="inp_tituloRequisito">
+                    <textarea name="descricao" id="textarea_descricao" maxlength="150"
+                        placeholder="Descrição do requisito..."></textarea>
+                    <img src="img/send_120237.png" alt="" onclick="publicarRequisito()">
+                </div>
+            
+            </div>
+        </div>
+        
+
+    </main>
+</body>
+
+</html>
+<script src="javascript/TelaProjetos.js">
+
+
+</script>
