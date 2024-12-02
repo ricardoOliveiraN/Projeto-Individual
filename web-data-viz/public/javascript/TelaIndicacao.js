@@ -61,14 +61,14 @@ function AtualizarDiv() {
   
           }
   
-          finalizarAguardar();
+          // finalizarAguardar();
         });
       } else {
         throw ('Houve um erro na API!');
       }
     }).catch(function (resposta) {
       console.error(resposta);
-      finalizarAguardar();
+      // finalizarAguardar();
     });
   
   
@@ -240,14 +240,14 @@ function AtualizarDiv() {
                        `
           }
   
-          finalizarAguardar();
+          // finalizarAguardar();
         });
       } else {
         throw ('Houve um erro na API!');
       }
     }).catch(function (resposta) {
       console.error(resposta);
-      finalizarAguardar();
+      // finalizarAguardar();
     });
   
   

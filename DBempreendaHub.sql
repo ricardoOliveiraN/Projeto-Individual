@@ -9,7 +9,9 @@ CREATE TABLE Usuarios (
     senha VARCHAR(20),
     tipoPerfil VARCHAR(15)
    );
-   
+
+SELECT nomeCompleto, numeroCelular, email, tipoPerfil FROM Usuarios WHERE idUsuario = 1;
+
 INSERT INTO Usuarios (idUsuario, nomeCompleto, numeroCelular, email, senha) VALUES
 (2, 'RICARDO DE OLIVEIRA NICOLAU', '11985247282', 'ricardo@gmai.com', 'Garoto04@-'); 
     
@@ -120,14 +122,103 @@ INSERT INTO Quiz (idQuiz) VALUES
     (2);
 
 CREATE TABLE Metricas (
+	idMetricas INT AUTO_INCREMENT,
     fkUsuario INT,
     CONSTRAINT fkUserMetrica FOREIGN KEY (fkUsuario) REFERENCES Usuarios(idUsuario),
     fkQuiz INT,
     CONSTRAINT fkQuizMetrica FOREIGN KEY (fkQuiz) REFERENCES Quiz(idQuiz),
-    PRIMARY KEY (fkUsuario, fkQuiz),
+    PRIMARY KEY (idMetricas, fkUsuario, fkQuiz),
 	Q1 INT,
     Q2 INT,
-    Q3 INT);
+    Q3 INT,
+    Q4 INT,
+    Q5 INT,
+    Q6 INT,
+    Q7 INT,
+    Q8 INT,
+    Q9 INT,
+    Q10 INT
+    );
+    
+    SELECT * FROM Metricas WHERE fkQuiz = 2;
+
+SELECT 
+    fkUsuario,
+    fkQuiz,
+    idMetricas,
+    SUM(CASE WHEN Q1 = 1 THEN 1 ELSE 0 END
+        + CASE WHEN Q2 = 1 THEN 1 ELSE 0 END
+        + CASE WHEN Q3 = 1 THEN 1 ELSE 0 END
+        + CASE WHEN Q4 = 1 THEN 1 ELSE 0 END
+        + CASE WHEN Q5 = 1 THEN 1 ELSE 0 END
+        + CASE WHEN Q6 = 1 THEN 1 ELSE 0 END
+        + CASE WHEN Q7 = 1 THEN 1 ELSE 0 END
+        + CASE WHEN Q8 = 1 THEN 1 ELSE 0 END
+        + CASE WHEN Q9 = 1 THEN 1 ELSE 0 END
+        + CASE WHEN Q10 = 1 THEN 1 ELSE 0 END) AS total_acertos,
+    SUM(CASE WHEN Q1 = 0 THEN 1 ELSE 0 END
+        + CASE WHEN Q2 = 0 THEN 1 ELSE 0 END
+        + CASE WHEN Q3 = 0 THEN 1 ELSE 0 END
+        + CASE WHEN Q4 = 0 THEN 1 ELSE 0 END
+        + CASE WHEN Q5 = 0 THEN 1 ELSE 0 END
+        + CASE WHEN Q6 = 0 THEN 1 ELSE 0 END
+        + CASE WHEN Q7 = 0 THEN 1 ELSE 0 END
+        + CASE WHEN Q8 = 0 THEN 1 ELSE 0 END
+        + CASE WHEN Q9 = 0 THEN 1 ELSE 0 END
+        + CASE WHEN Q10 = 0 THEN 1 ELSE 0 END) AS total_erros
+FROM Metricas
+WHERE fkQuiz = 2
+and fkUsuario = 1
+GROUP BY fkUsuario, fkQuiz, idMetricas
+ORDER BY idMetricas DESC LIMIT 1;
+
+SELECT * FROM Metricas;
+
+
+SELECT 
+    SUM(CASE WHEN Q1 = 1 THEN 1 ELSE 0 END 
+        + CASE WHEN Q2 = 1 THEN 1 ELSE 0 END 
+        + CASE WHEN Q3 = 1 THEN 1 ELSE 0 END 
+        + CASE WHEN Q4 = 1 THEN 1 ELSE 0 END 
+        + CASE WHEN Q5 = 1 THEN 1 ELSE 0 END 
+        + CASE WHEN Q6 = 1 THEN 1 ELSE 0 END 
+        + CASE WHEN Q7 = 1 THEN 1 ELSE 0 END 
+        + CASE WHEN Q8 = 1 THEN 1 ELSE 0 END 
+        + CASE WHEN Q9 = 1 THEN 1 ELSE 0 END 
+        + CASE WHEN Q10 = 1 THEN 1 ELSE 0 END) AS total_acertos,
+    SUM(CASE WHEN Q1 = 0 THEN 1 ELSE 0 END 
+        + CASE WHEN Q2 = 0 THEN 1 ELSE 0 END 
+        + CASE WHEN Q3 = 0 THEN 1 ELSE 0 END 
+        + CASE WHEN Q4 = 0 THEN 1 ELSE 0 END 
+        + CASE WHEN Q5 = 0 THEN 1 ELSE 0 END 
+        + CASE WHEN Q6 = 0 THEN 1 ELSE 0 END 
+        + CASE WHEN Q7 = 0 THEN 1 ELSE 0 END 
+        + CASE WHEN Q8 = 0 THEN 1 ELSE 0 END 
+        + CASE WHEN Q9 = 0 THEN 1 ELSE 0 END 
+        + CASE WHEN Q10 = 0 THEN 1 ELSE 0 END) AS total_erros
+FROM Metricas
+WHERE fkUsuario = 1 and fkQuiz = 1; 
+
+SELECT 
+    SUM(CASE WHEN Q1 = 1 THEN 1 ELSE 0 END) AS Q1_acertos,
+    SUM(CASE WHEN Q2 = 1 THEN 1 ELSE 0 END) AS Q2_acertos,
+    SUM(CASE WHEN Q3 = 1 THEN 1 ELSE 0 END) AS Q3_acertos,
+    SUM(CASE WHEN Q4 = 1 THEN 1 ELSE 0 END) AS Q4_acertos,
+    SUM(CASE WHEN Q5 = 1 THEN 1 ELSE 0 END) AS Q5_acertos,
+    SUM(CASE WHEN Q6 = 1 THEN 1 ELSE 0 END) AS Q6_acertos,
+    SUM(CASE WHEN Q7 = 1 THEN 1 ELSE 0 END) AS Q7_acertos,
+    SUM(CASE WHEN Q8 = 1 THEN 1 ELSE 0 END) AS Q8_acertos,
+    SUM(CASE WHEN Q9 = 1 THEN 1 ELSE 0 END) AS Q9_acertos,
+    SUM(CASE WHEN Q10 = 1 THEN 1 ELSE 0 END) AS Q10_acertos
+FROM Metricas;
+
+SELECT 
+    Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10
+FROM Metricas
+WHERE fkUsuario = 1; 
+
+
+
     SELECT * FROM Usuarios;
     SELECT * FROM Metricas;
 UPDATE Usuarios SET tipoPerfil = '' WHERE idUsuario = 1;

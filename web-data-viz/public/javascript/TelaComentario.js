@@ -47,7 +47,7 @@ function buscarPost() {
       }
     }).catch(function (resposta) {
       console.error(resposta);
-      finalizarAguardar();
+      // finalizarAguardar();
     });
   
   
