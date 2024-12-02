@@ -6,7 +6,9 @@ body{
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
     transition: 0.3s;
+    scroll-behavior: smooth;
 }
+*{scroll-behavior: smooth;}
 
 /*Header*/
 a{
@@ -66,7 +68,8 @@ a{
 }
 .div_headerBotao a{
     text-decoration: none;
-    color:orangered;
+    color:white;
+    font-weight: bold;
 }
 
 

@@ -1,22 +1,25 @@
-.div_containerMain{
+.div_containerMain {
     display: flex;
     height: 511px;
     background-color: #C0C0C0;
-    
+
 }
-.div_mainImg{
+
+.div_mainImg {
     background-image: url(../img/backgroundCLcorreto.png);
     background-repeat: no-repeat;
     width: 50%;
-    
+
 }
-.div_mainConteudo{
-    display:flex;
+
+.div_mainConteudo {
+    display: flex;
     flex-direction: column;
     /* border: 3px solid white; */
     width: 50%;
 }
-.div_mainTitulo{
+
+.div_mainTitulo {
     display: flex;
     display: flex;
     flex-direction: column;
@@ -24,29 +27,34 @@
     justify-content: center;
     align-items: center;
 }
-.div_mainTituloBorda{
+
+.div_mainTituloBorda {
     width: 40%;
     border-bottom: 4px solid #D4AF37;
     margin-top: -21px;
 }
-.div_mainInputs{
+
+.div_mainInputs {
     margin-top: -10px;
     margin-left: 70px;
 }
-.input_custom{
-    border:none;
+
+.input_custom {
+    border: none;
     background-color: transparent;
     border-bottom: 1px solid black;
     width: 80%;
     margin-top: 45px;
 }
-.input_custom::placeholder{
-    color:black;
+
+.input_custom::placeholder {
+    color: black;
     font-style: 'Lato', sans-serif;
-    padding: 10px; 
+    padding: 10px;
     font-size: 16px;
 }
-.div_mainCadastrar{
+
+.div_mainCadastrar {
     display: flex;
     height: 142px;
     flex-direction: column;
@@ -55,7 +63,8 @@
     justify-content: center;
     align-items: center;
 }
-.div_mainCadastrar button{
+
+.div_mainCadastrar button {
     background-color: #000080;
     opacity: 50%;
     color: white;
@@ -65,29 +74,34 @@
     width: 40%;
     border-radius: 10px;
 }
-.div_mainCadastrar span{
+
+.div_mainCadastrar span {
     text-decoration: underline;
-    cursor:pointer;
+    cursor: pointer;
 }
+
 /*LOGIN*/
-.div_mainInputsLogin{
+.div_mainInputsLogin {
     margin-top: 32px;
     margin-left: 70px;
 }
-.input_customLogin{
-    border:none;
+
+.input_customLogin {
+    border: none;
     background-color: transparent;
     border-bottom: 1px solid black;
     width: 80%;
     margin-top: 76px;
 }
-.input_customLogin::placeholder{
-    color:black;
+
+.input_customLogin::placeholder {
+    color: black;
     font-style: 'Lato', sans-serif;
-    padding: 10px; 
+    padding: 10px;
     font-size: 16px;
 }
-.div_mainCadastrarLogin{
+
+.div_mainCadastrarLogin {
     display: flex;
     height: 142px;
     flex-direction: column;
@@ -97,7 +111,8 @@
     align-items: center;
     margin-top: 70px;
 }
-.div_mainCadastrarLogin button{
+
+.div_mainCadastrarLogin button {
     background-color: #000080;
     opacity: 50%;
     color: white;
@@ -106,9 +121,296 @@
     border: none;
     width: 40%;
     border-radius: 10px;
-    cursor:pointer;
+    cursor: pointer;
 }
-.div_mainCadastrarLogin span{
+
+.div_mainCadastrarLogin span {
     text-decoration: underline;
-    cursor:pointer;
+    cursor: pointer;
+}
+
+
+/*index*/
+.div_containerMain2 {
+    display: flex;
+    height: auto;
+    background-color: #C0C0C0;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.div_PrimeiraLinha {
+    display: flex;
+    width: 100%;
+    height: 300px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.div_PrimeiraLinhaCentro {
+    display: flex;
+    word-break: break-word;
+    width: 60%;
+    height: 400px;
+    border-radius: 0px 0px 80px 80px;
+    background-color: #4b008278;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 42px;
+}
+
+.div_PrimeiraLinhaCentro a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.div_primeiraButao {
+
+    background-color: #00008085;
+    padding: 10px;
+    border-radius: 13px;
+}
+
+.div_SegundaLinha {
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.div_SegundaLinhaEngloba {
+    width: 80%;
+    height: auto;
+}
+
+.div_TitulosPagina h2 {
+    border-bottom: 3px solid #D4AF37;
+    width: 180px;
+}
+
+.div_TitulosPagina {
+    margin-left: 40px;
+}
+
+.div_CaixaTexto {
+    background-color: #80002054;
+    border-radius: 13px;
+    width: 80%;
+    height: 80%;
+    justify-self: center;
+    word-break: break-word;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_TerceiraLinha {
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.div_ServicosCaixaMaior {
+    display: flex;
+    width: 80%;
+    height: 400px;
+    justify-self: center;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.div_ServicosCaixaMenor {
+    display: flex;
+    width: 90%;
+    height: 90%;
+    justify-self: center;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.div_ServicosCaixaUm {
+    border: 2px solid black;
+    width: 30%;
+    height: 80%;
+    border-radius: 60px;
+}
+
+.div_ServicosCaixaDois {
+    border: 2px solid black;
+    width: 30%;
+    height: 80%;
+    border-radius: 60px;
+}
+
+.div_ServicosCaixaTres {
+    border: 2px solid black;
+    width: 30%;
+    height: 80%;
+    border-radius: 60px;
+}
+
+.div_CaixaTextoServico {
+    display: flex;
+    width: 80%;
+    height: 400px;
+    justify-self: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.div_primeiraButao2 {
+    background-color: #00008085;
+    padding: 10px;
+    border-radius: 13px;
+}
+
+.div_primeiraButao2 a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.div_QuartaLinha {
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.div_QuintaLinha {
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.div_SextaLinha {
+    margin-top: 16px;
+    display: flex;
+    width: 100%;
+    height: 116px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #4b008285;
+}
+
+.div_primeiraButao3 {
+    background-color: #00008085;
+    padding: 10px;
+    width: 150px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-self: center;
+}
+
+.div_primeiraButao3 a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.div_CaixaTexto2 {
+    border-radius: 13px;
+    width: 60%;
+    height: 80%;
+    justify-self: center;
+    word-break: break-word;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: bold;
+}
+
+.div_primeiraTexto {
+
+    display: flex;
+    width: 80%;
+    height: 80%;
+    word-break: break-word;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+p {
+    margin: 5px;
+}
+
+.div_CaixaTexto p {
+    color: black;
+    font-size: 16px;
+}
+
+.div_ServicosCaixaUm {
+    background-image: url(../img/Design\ sem\ nome\ \(7\).png);
+    background-size: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.div_ServicosCaixaDois {
+    background-image: url(../img/Design\ 2.png);
+    background-size: 1500px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.div_ServicosCaixaTres {
+    background-image: url(../img/Design\ 3.png);
+    background-size: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.div_CaixaTexto #p {
+    color: black;
+    font-size: 17px;
+
+}
+
+.div_CaixaTexto2 p {
+    color: black;
+    font-size: 18px;
+    margin-bottom: 12px;
 }
